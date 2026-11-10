@@ -1,0 +1,29 @@
+AISHA BELLO
+Senior Frontend Engineer
+aisha.bello@example.com | +1 (555) 010-0206 | Remote | aishabello.example.dev
+
+PROFESSIONAL SUMMARY
+--------------------
+Frontend engineer with 6 years of React and TypeScript experience in B2B SaaS, specialising in GraphQL clients and Next.js performance.
+
+EXPERIENCE
+----------
+Senior Frontend Engineer - Cobalt Analytics (2023 - Present)
+  * Owns the React and TypeScript analytics workspace built on Next.js and GraphQL.
+  * Introduced Playwright visual tests and Storybook docs across 60 components.
+
+Frontend Engineer - Tidewater SaaS (2020 - 2023)
+  * Built React + TypeScript admin tools; moved REST calls to GraphQL with Apollo.
+
+EDUCATION
+---------
+B.Eng. Computer Engineering, University of Lagos, 2019
+
+SKILLS
+------
+Languages: TypeScript, JavaScript, HTML, CSS
+Frameworks: React, Next.js, GraphQL, Apollo, Tailwind CSS
+Tooling: Playwright, Storybook, Vite, Vercel
+
+CERTIFICATIONS
+--------------

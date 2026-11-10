@@ -1,0 +1,16 @@
+# --- Agent ---
+langgraph>=1.0
+langchain-core>=1.0
+langchain-openai>=1.0       # OpenAI, Gemini, OpenRouter, Ollama cloud (OpenAI-compatible)
+langchain-anthropic>=1.0    # Claude
+langchain-ollama>=1.0       # local Ollama (native API, larger context window)
+python-dotenv>=1.0
+rich>=13.7                  # CLI
+
+# --- Milestone 1 file tools ---
+pypdf>=4.0
+python-docx>=1.1
+
+# --- Sample data + tests ---
+reportlab>=4.0              # builds the PDF resumes (generate_resume_pool.py)
+pytest>=8.0

@@ -1,0 +1,29 @@
+NIKHIL XU
+DevOps Engineer
+nikhil.xu@example.com | +1 (555) 0102-1002 | New York, NY
+
+PROFESSIONAL SUMMARY
+--------------------
+DevOps Engineer with 3 years of experience working with Linux, Docker, Kubernetes.
+
+EXPERIENCE
+----------
+DevOps Engineer - Lumos Media (2025 - Present)
+  * Built Terraform dashboards and Kubernetes alerts, cutting MTTR 20%.
+  * Automated infrastructure with Kubernetes and Terraform.
+
+Junior DevOps Engineer - Hollow Pine (2023 - 2025)
+  * Automated infrastructure with Kubernetes and Linux.
+  * Ran Linux clusters provisioned with Kubernetes across 3 regions.
+
+EDUCATION
+---------
+B.S. Information Technology, Delgado Polytechnic University, 2023
+
+SKILLS
+------
+Core: Linux, Docker, Kubernetes, Terraform, Azure
+Also: -
+
+CERTIFICATIONS
+--------------

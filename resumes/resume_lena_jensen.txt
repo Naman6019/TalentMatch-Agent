@@ -1,0 +1,31 @@
+LENA JENSEN
+Senior Backend Engineer
+lena.jensen@example.com | +1 (555) 0144-1044 | Pune, India
+
+PROFESSIONAL SUMMARY
+--------------------
+Senior Backend Engineer with 7 years of experience working with Python, SQL, REST.
+
+EXPERIENCE
+----------
+Senior Backend Engineer - Zephyr Mobility (2020 - Present)
+  * Refactored a monolith into SQL microservices using Flask.
+  * Built Flask services with Terraform handling 29k requests per minute.
+  * Day-to-day stack: SQL, Flask, Terraform, REST.
+
+Backend Engineer - Brightwave (2019 - 2020)
+  * Built Terraform services with Python handling 58k requests per minute.
+  * Owned Python schemas and Flask caching for core APIs.
+  * Day-to-day stack: Terraform, Python, Flask.
+
+EDUCATION
+---------
+B.S. Computer Science, Fischer University of Applied Sciences, 2019
+
+SKILLS
+------
+Core: Python, SQL, REST, Flask, Terraform
+Also: -
+
+CERTIFICATIONS
+--------------

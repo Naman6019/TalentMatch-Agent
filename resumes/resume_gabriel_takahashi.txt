@@ -1,0 +1,34 @@
+GABRIEL TAKAHASHI
+Senior Java Engineer
+gabriel.takahashi@example.com | +1 (555) 0105-1005 | Lisbon, Portugal
+
+PROFESSIONAL SUMMARY
+--------------------
+Senior Java Engineer with 12 years of experience working with Java, Spring Boot, SQL.
+
+EXPERIENCE
+----------
+Senior Java Engineer - Sable Analytics (2018 - Present)
+  * Tuned Spring Boot queries and Kubernetes consumers, cutting latency 13%.
+  * Developed Kubernetes microservices with Spring Boot for payment processing.
+
+Java Engineer - Pebble Payments (2017 - 2018)
+  * Migrated deployments to Docker with Spring Boot pipelines.
+  * Developed Spring Boot microservices with Docker for payment processing.
+
+Junior Java Developer - Zephyr Mobility (2014 - 2017)
+  * Tuned SQL queries and PostgreSQL consumers, cutting latency 44%.
+  * Developed PostgreSQL microservices with Docker for payment processing.
+  * Day-to-day stack: SQL, PostgreSQL, Docker, Jenkins.
+
+EDUCATION
+---------
+B.E. Computer Engineering, Moreau University of Applied Sciences, 2014
+
+SKILLS
+------
+Core: Java, Spring Boot, SQL, MySQL, PostgreSQL
+Also: Kubernetes, Jenkins, Docker, AWS
+
+CERTIFICATIONS
+--------------

@@ -1,0 +1,36 @@
+UMA NAKAMURA
+Senior Machine Learning Engineer
+uma.nakamura@example.com | +1 (555) 0177-1077 | Toronto, ON
+
+PROFESSIONAL SUMMARY
+--------------------
+Senior Machine Learning Engineer with 7 years of experience working with Python, Machine Learning, PyTorch.
+
+EXPERIENCE
+----------
+Senior Machine Learning Engineer - Keystone Bank (2023 - Present)
+  * Built PyTorch pipelines on Docker, cutting training time 56%.
+  * Trained Docker models and deployed them with FastAPI.
+  * Day-to-day stack: PyTorch, Docker, FastAPI.
+
+Machine Learning Engineer - Acme Robotics (2022 - 2023)
+  * Shipped PyTorch features for search ranking using FastAPI.
+  * Trained FastAPI models and deployed them with Python.
+  * Day-to-day stack: PyTorch, FastAPI, Python.
+
+Junior ML Engineer - Hollow Pine (2019 - 2022)
+  * Built Docker pipelines on Kubernetes, cutting training time 22%.
+  * Trained Kubernetes models and deployed them with FastAPI.
+  * Day-to-day stack: Docker, Kubernetes, FastAPI.
+
+EDUCATION
+---------
+M.S. Computer Science, Kim Institute of Technology, 2019
+
+SKILLS
+------
+Core: Python, Machine Learning, PyTorch, FastAPI, Docker
+Also: Kubernetes
+
+CERTIFICATIONS
+--------------

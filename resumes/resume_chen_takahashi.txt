@@ -1,0 +1,29 @@
+CHEN TAKAHASHI
+Senior Backend Engineer
+chen.takahashi@example.com | +1 (555) 0126-1026 | London, UK
+
+PROFESSIONAL SUMMARY
+--------------------
+Senior Backend Engineer with 8 years of experience working with Python, SQL, REST.
+
+EXPERIENCE
+----------
+Senior Backend Engineer - Riverbend Insurance (2020 - Present)
+  * Built REST services with Django handling 25k requests per minute.
+  * Owned Django schemas and REST caching for core APIs.
+
+Backend Engineer - Pebble Payments (2018 - 2020)
+  * Refactored a monolith into SQL microservices using Python.
+  * Owned Python schemas and SQL caching for core APIs.
+
+EDUCATION
+---------
+B.S. Computer Science, Costa Institute of Technology, 2018
+
+SKILLS
+------
+Core: Python, SQL, REST, Kafka, GraphQL
+Also: Django, FastAPI
+
+CERTIFICATIONS
+--------------

@@ -1,0 +1,35 @@
+MATEO FISCHER
+Java Engineer
+mateo.fischer@example.com | +1 (555) 0123-1023 | Amsterdam, NL
+
+PROFESSIONAL SUMMARY
+--------------------
+Java Engineer with 4 years of experience working with Java, Spring Boot, SQL.
+
+EXPERIENCE
+----------
+Java Engineer - Sable Analytics (2025 - Present)
+  * Tuned Redis queries and Spring Boot consumers, cutting latency 29%.
+  * Developed Spring Boot microservices with Redis for payment processing.
+
+Junior Java Developer - Orchid Telecom (2023 - 2025)
+  * Migrated deployments to MySQL with Microservices pipelines.
+  * Tuned Microservices queries and Kubernetes consumers, cutting latency 54%.
+  * Day-to-day stack: MySQL, Microservices, Kubernetes.
+
+Junior Java Developer - Zephyr Mobility (2022 - 2023)
+  * Developed Redis microservices with SQL for payment processing.
+  * Migrated deployments to SQL with Spring Boot pipelines.
+  * Day-to-day stack: Redis, SQL, Spring Boot.
+
+EDUCATION
+---------
+B.E. Computer Engineering, Larsen Institute of Technology, 2022
+
+SKILLS
+------
+Core: Java, Spring Boot, SQL, Microservices, Redis
+Also: MySQL, REST, Kubernetes
+
+CERTIFICATIONS
+--------------

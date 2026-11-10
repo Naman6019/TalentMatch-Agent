@@ -1,0 +1,36 @@
+YUSUF YILMAZ
+Senior Frontend Engineer
+yusuf.yilmaz@example.com | +1 (555) 0180-1080 | Amsterdam, NL
+
+PROFESSIONAL SUMMARY
+--------------------
+Senior Frontend Engineer with 14 years of experience working with React, JavaScript, HTML.
+
+EXPERIENCE
+----------
+Senior Frontend Engineer - Cinder Labs (2015 - Present)
+  * Built JavaScript and React user interfaces for a customer-facing web app.
+  * Migrated legacy pages to React, improving load time by 12%.
+  * Day-to-day stack: JavaScript, React, Next.js.
+
+Frontend Engineer - Willow Biotech (2013 - 2015)
+  * Built React and HTML user interfaces for a customer-facing web app.
+  * Set up HTML tests and AWS tooling for the frontend team.
+  * Day-to-day stack: React, HTML, AWS, Redux.
+
+Junior Frontend Developer - Vantage Travel (2012 - 2013)
+  * Set up JavaScript tests and TypeScript tooling for the frontend team.
+  * Built TypeScript and Next.js user interfaces for a customer-facing web app.
+  * Day-to-day stack: JavaScript, TypeScript, Next.js.
+
+EDUCATION
+---------
+B.S. Computer Science, Vargas Polytechnic University, 2012
+
+SKILLS
+------
+Core: React, JavaScript, HTML, CSS, TypeScript, Accessibility
+Also: AWS, Redux, Next.js
+
+CERTIFICATIONS
+--------------

@@ -1,0 +1,25 @@
+JONAS TAKAHASHI
+Data Scientist
+jonas.takahashi@example.com | +1 (555) 0111-1011 | Pune, India
+
+PROFESSIONAL SUMMARY
+--------------------
+Data Scientist with 2 years of experience working with Python, SQL, pandas.
+
+EXPERIENCE
+----------
+Data Scientist - Gridline Energy (2024 - Present)
+  * Ran A/B tests and presented pandas insights built on Excel.
+  * Built Excel models with pandas that lifted retention by 31%.
+
+EDUCATION
+---------
+M.S. Statistics, Quinn Polytechnic University, 2024
+
+SKILLS
+------
+Core: Python, SQL, pandas, Spark, Machine Learning
+Also: Excel
+
+CERTIFICATIONS
+--------------

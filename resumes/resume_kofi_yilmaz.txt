@@ -1,0 +1,26 @@
+KOFI YILMAZ
+Junior Mobile Developer
+kofi.yilmaz@example.com | +1 (555) 0108-1008 | Lisbon, Portugal
+
+PROFESSIONAL SUMMARY
+--------------------
+Junior Mobile Developer with 0 years of experience working with Swift, Kotlin, Firebase.
+
+EXPERIENCE
+----------
+Junior Mobile Developer - Sable Analytics (2025 - Present)
+  * Shipped TypeScript and Flutter releases to 230k monthly users.
+  * Rebuilt onboarding in Flutter with GraphQL analytics.
+  * Day-to-day stack: TypeScript, Flutter, GraphQL, Kotlin.
+
+EDUCATION
+---------
+B.S. Computer Science, Ibrahim State University, 2025
+
+SKILLS
+------
+Core: Swift, Kotlin, Firebase, GraphQL
+Also: Flutter, React Native, TypeScript
+
+CERTIFICATIONS
+--------------

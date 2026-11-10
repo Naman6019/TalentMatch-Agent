@@ -1,0 +1,34 @@
+IVAN ALVAREZ
+Senior Data Scientist
+ivan.alvarez@example.com | +1 (555) 0168-1068 | Austin, TX
+
+PROFESSIONAL SUMMARY
+--------------------
+Senior Data Scientist with 14 years of experience working with Python, SQL, pandas.
+
+EXPERIENCE
+----------
+Senior Data Scientist - Zephyr Mobility (2020 - Present)
+  * Ran A/B tests and presented Excel insights built on Python.
+  * Built Python models with Statistics that lifted retention by 57%.
+  * Day-to-day stack: Excel, Python, Statistics.
+
+Data Scientist - Pebble Payments (2013 - 2020)
+  * Built SQL models with PyTorch that lifted retention by 35%.
+  * Ran A/B tests and presented PyTorch insights built on SQL.
+
+Data Analyst - Thistle Education (2012 - 2013)
+  * Built Excel models with pandas that lifted retention by 29%.
+  * Ran A/B tests and presented pandas insights built on Excel.
+
+EDUCATION
+---------
+M.S. Statistics, Vargas University of Applied Sciences, 2012
+
+SKILLS
+------
+Core: Python, SQL, pandas, PyTorch, Statistics
+Also: Excel
+
+CERTIFICATIONS
+--------------

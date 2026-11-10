@@ -1,0 +1,31 @@
+MATEO COSTA
+Full-Stack Engineer
+mateo.costa@example.com | +1 (555) 0156-1056 | Austin, TX
+
+PROFESSIONAL SUMMARY
+--------------------
+Full-Stack Engineer with 5 years of experience working with JavaScript, Node.js, SQL.
+
+EXPERIENCE
+----------
+Full-Stack Engineer - Monarch Freight (2023 - Present)
+  * Designed REST APIs in Express backed by JavaScript.
+  * Delivered features end to end with JavaScript on the frontend and SQL on the backend.
+  * Day-to-day stack: Express, JavaScript, SQL.
+
+Junior Full-Stack Developer - Ironclad Security (2021 - 2023)
+  * Designed REST APIs in Vue.js backed by Express.
+  * Containerised services with Express and automated releases on SQL.
+  * Day-to-day stack: Vue.js, Express, SQL, Node.js.
+
+EDUCATION
+---------
+B.S. Software Engineering, Bakker State University, 2021
+
+SKILLS
+------
+Core: JavaScript, Node.js, SQL, Vue.js, GraphQL
+Also: Python, Express
+
+CERTIFICATIONS
+--------------

@@ -1,0 +1,29 @@
+OMAR HADDAD
+Machine Learning Engineer
+omar.haddad@example.com | +1 (555) 010-0209 | Austin, TX | github.com/example-ohaddad
+
+PROFESSIONAL SUMMARY
+--------------------
+ML engineer with 5 years of experience training and serving PyTorch models, with an NLP and LLM focus.
+
+EXPERIENCE
+----------
+Machine Learning Engineer - Signal Labs (2022 - Present)
+  * Fine-tuned PyTorch NLP and LLM models; served them with FastAPI on Kubernetes.
+  * Built MLOps pipelines with MLflow and Airflow.
+
+Data Scientist - Prairie Analytics (2021 - 2022)
+  * Built Python and scikit-learn models with pandas for churn prediction.
+
+EDUCATION
+---------
+M.S. Computer Science (Machine Learning), UT Austin, 2021
+
+SKILLS
+------
+Languages: Python, SQL
+Frameworks: PyTorch, scikit-learn, pandas, FastAPI
+Tooling: Kubernetes, Airflow, MLflow, Docker
+
+CERTIFICATIONS
+--------------

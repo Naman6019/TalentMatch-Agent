@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.pytest_tmp/
+.cache/
+.env
+output/reports/
+video/node_modules/
+video/out/

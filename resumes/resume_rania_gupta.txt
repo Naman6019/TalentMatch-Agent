@@ -1,0 +1,29 @@
+RANIA GUPTA
+Full-Stack Engineer
+rania.gupta@example.com | +1 (555) 0129-1029 | Bangalore, India
+
+PROFESSIONAL SUMMARY
+--------------------
+Full-Stack Engineer with 3 years of experience working with JavaScript, Node.js, SQL.
+
+EXPERIENCE
+----------
+Full-Stack Engineer - Quarry Games (2024 - Present)
+  * Designed REST APIs in SQL backed by Python.
+  * Delivered features end to end with Python on the frontend and SQL on the backend.
+
+Junior Full-Stack Developer - Quarry Games (2023 - 2024)
+  * Designed REST APIs in Docker backed by Express.
+  * Containerised services with Express and automated releases on Docker.
+
+EDUCATION
+---------
+B.S. Software Engineering, Novak Polytechnic University, 2023
+
+SKILLS
+------
+Core: JavaScript, Node.js, SQL, GraphQL, Express
+Also: Docker, Python
+
+CERTIFICATIONS
+--------------

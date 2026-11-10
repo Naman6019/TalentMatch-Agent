@@ -1,0 +1,30 @@
+STEFAN DUBOIS
+Backend Engineer
+stefan.dubois@example.com | +1 (555) 0174-1074 | Seattle, WA
+
+PROFESSIONAL SUMMARY
+--------------------
+Backend Engineer with 4 years of experience working with Python, SQL, REST.
+
+EXPERIENCE
+----------
+Backend Engineer - Vantage Travel (2025 - Present)
+  * Built AWS services with REST handling 46k requests per minute.
+  * Refactored a monolith into REST microservices using AWS.
+
+Junior Backend Developer - Ironclad Security (2022 - 2025)
+  * Owned SQL schemas and REST caching for core APIs.
+  * Built REST services with Python handling 29k requests per minute.
+  * Day-to-day stack: SQL, REST, Python.
+
+EDUCATION
+---------
+B.S. Computer Science, Johansson Institute of Technology, 2022
+
+SKILLS
+------
+Core: Python, SQL, REST, Kubernetes, AWS
+Also: -
+
+CERTIFICATIONS
+--------------

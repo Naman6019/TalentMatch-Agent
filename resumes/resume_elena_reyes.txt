@@ -1,0 +1,35 @@
+ELENA REYES
+Senior Full-Stack Engineer
+elena.reyes@example.com | +1 (555) 0114-1014 | Sydney, Australia
+
+PROFESSIONAL SUMMARY
+--------------------
+Senior Full-Stack Engineer with 6 years of experience working with JavaScript, Node.js, SQL.
+
+EXPERIENCE
+----------
+Senior Full-Stack Engineer - Keystone Bank (2024 - Present)
+  * Designed REST APIs in Redis backed by JavaScript.
+  * Containerised services with JavaScript and automated releases on React.
+  * Day-to-day stack: Redis, JavaScript, React, Express.
+
+Full-Stack Engineer - Nimbus Cloud (2022 - 2024)
+  * Delivered features end to end with Express on the frontend and Node.js on the backend.
+  * Designed REST APIs in Node.js backed by GraphQL.
+  * Day-to-day stack: Express, Node.js, GraphQL, Redis.
+
+Junior Full-Stack Developer - Keystone Bank (2020 - 2022)
+  * Designed REST APIs in Express backed by GraphQL.
+  * Containerised services with GraphQL and automated releases on Express.
+
+EDUCATION
+---------
+B.S. Software Engineering, Usman State University, 2020
+
+SKILLS
+------
+Core: JavaScript, Node.js, SQL, GraphQL, Redis
+Also: Vue.js, AWS, React, Express
+
+CERTIFICATIONS
+--------------

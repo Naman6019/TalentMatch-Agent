@@ -1,0 +1,30 @@
+IVAN COSTA
+DevOps Engineer
+ivan.costa@example.com | +1 (555) 0153-1053 | Seattle, WA
+
+PROFESSIONAL SUMMARY
+--------------------
+DevOps Engineer with 5 years of experience working with Linux, Docker, Kubernetes.
+
+EXPERIENCE
+----------
+DevOps Engineer - Hollow Pine (2022 - Present)
+  * Ran CI/CD clusters provisioned with GCP across 3 regions.
+  * Built GCP dashboards and CI/CD alerts, cutting MTTR 13%.
+
+Junior DevOps Engineer - Riverbend Insurance (2021 - 2022)
+  * Ran Terraform clusters provisioned with Jenkins across 3 regions.
+  * Automated infrastructure with Jenkins and Go.
+  * Day-to-day stack: Terraform, Jenkins, Go.
+
+EDUCATION
+---------
+B.S. Information Technology, Garcia Institute of Technology, 2021
+
+SKILLS
+------
+Core: Linux, Docker, Kubernetes, GCP, Go
+Also: Jenkins, Terraform, CI/CD
+
+CERTIFICATIONS
+--------------

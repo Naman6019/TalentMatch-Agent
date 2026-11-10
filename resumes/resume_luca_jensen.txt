@@ -1,0 +1,31 @@
+LUCA JENSEN
+Senior Full-Stack Engineer
+luca.jensen@example.com | +1 (555) 0150-1050 | Berlin, Germany
+
+PROFESSIONAL SUMMARY
+--------------------
+Senior Full-Stack Engineer with 6 years of experience working with JavaScript, Node.js, SQL.
+
+EXPERIENCE
+----------
+Senior Full-Stack Engineer - Nimbus Cloud (2023 - Present)
+  * Containerised services with Redis and automated releases on GraphQL.
+  * Delivered features end to end with GraphQL on the frontend and SQL on the backend.
+  * Day-to-day stack: Redis, GraphQL, SQL, Node.js.
+
+Full-Stack Engineer - Pebble Payments (2020 - 2023)
+  * Delivered features end to end with SQL on the frontend and JavaScript on the backend.
+  * Containerised services with JavaScript and automated releases on PostgreSQL.
+  * Day-to-day stack: SQL, JavaScript, PostgreSQL, Python.
+
+EDUCATION
+---------
+B.S. Software Engineering, Ortiz Institute of Technology, 2020
+
+SKILLS
+------
+Core: JavaScript, Node.js, SQL, Redis, Python
+Also: GraphQL, PostgreSQL
+
+CERTIFICATIONS
+--------------

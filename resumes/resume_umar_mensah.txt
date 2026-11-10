@@ -1,0 +1,26 @@
+UMAR MENSAH
+Mobile Engineer
+umar.mensah@example.com | +1 (555) 0141-1041 | Austin, TX
+
+PROFESSIONAL SUMMARY
+--------------------
+Mobile Engineer with 2 years of experience working with Swift, Kotlin, React Native.
+
+EXPERIENCE
+----------
+Mobile Engineer - Willow Biotech (2024 - Present)
+  * Maintained React Native apps and Kotlin pipelines.
+  * Rebuilt onboarding in Kotlin with CI/CD analytics.
+  * Day-to-day stack: React Native, Kotlin, CI/CD, Swift.
+
+EDUCATION
+---------
+B.S. Computer Science, Johansson Institute of Technology, 2024
+
+SKILLS
+------
+Core: Swift, Kotlin, React Native, CI/CD
+Also: -
+
+CERTIFICATIONS
+--------------

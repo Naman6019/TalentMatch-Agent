@@ -1,0 +1,30 @@
+NIKHIL ANDERSSON
+DevOps Engineer
+nikhil.andersson@example.com | +1 (555) 0138-1038 | Berlin, Germany
+
+PROFESSIONAL SUMMARY
+--------------------
+DevOps Engineer with 4 years of experience working with Linux, Docker, Kubernetes.
+
+EXPERIENCE
+----------
+DevOps Engineer - Driftwood Software (2024 - Present)
+  * Ran Kubernetes clusters provisioned with Azure across 3 regions.
+  * Built Azure dashboards and Kubernetes alerts, cutting MTTR 22%.
+
+Junior DevOps Engineer - Keystone Bank (2022 - 2024)
+  * Automated infrastructure with Linux and Docker.
+  * Ran Docker clusters provisioned with Kubernetes across 3 regions.
+  * Day-to-day stack: Linux, Docker, Kubernetes.
+
+EDUCATION
+---------
+B.S. Information Technology, Iyer Institute of Technology, 2022
+
+SKILLS
+------
+Core: Linux, Docker, Kubernetes, Grafana, Azure
+Also: -
+
+CERTIFICATIONS
+--------------

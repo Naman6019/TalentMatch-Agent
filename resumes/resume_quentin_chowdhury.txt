@@ -1,0 +1,36 @@
+QUENTIN CHOWDHURY
+Full-Stack Engineer
+quentin.chowdhury@example.com | +1 (555) 0159-1059 | Lisbon, Portugal
+
+PROFESSIONAL SUMMARY
+--------------------
+Full-Stack Engineer with 3 years of experience working with JavaScript, Node.js, SQL.
+
+EXPERIENCE
+----------
+Full-Stack Engineer - Willow Biotech (2025 - Present)
+  * Containerised services with TypeScript and automated releases on GraphQL.
+  * Designed REST APIs in GraphQL backed by Docker.
+  * Day-to-day stack: TypeScript, GraphQL, Docker, Node.js.
+
+Junior Full-Stack Developer - Acme Robotics (2024 - 2025)
+  * Delivered features end to end with Express on the frontend and Node.js on the backend.
+  * Containerised services with Node.js and automated releases on SQL.
+  * Day-to-day stack: Express, Node.js, SQL.
+
+Junior Full-Stack Developer - Monarch Freight (2023 - 2024)
+  * Delivered features end to end with TypeScript on the frontend and Express on the backend.
+  * Containerised services with Express and automated releases on MongoDB.
+  * Day-to-day stack: TypeScript, Express, MongoDB.
+
+EDUCATION
+---------
+B.S. Software Engineering, Esposito Polytechnic University, 2023
+
+SKILLS
+------
+Core: JavaScript, Node.js, SQL, Docker, Express
+Also: MongoDB, TypeScript, PostgreSQL, GraphQL
+
+CERTIFICATIONS
+--------------

@@ -1,0 +1,2518 @@
+{
+ "llm": "offline (deterministic reasoning, no LLM)",
+ "scenarios": [
+  {
+   "name": "01_jd_to_shortlist",
+   "title": "JD file -> 3-round screen -> report",
+   "goal": "Parse a JD, extract must/nice requirements, screen 100 resumes to 10, recommend hire/no-hire.",
+   "turns": [
+    {
+     "user": "job_descriptions/senior_frontend_react.txt",
+     "nodes": [
+      "parse_jd",
+      "extract_requirements",
+      "search_resumes",
+      "rank_candidates",
+      "generate_report"
+     ],
+     "reasoning": [
+      "[parse_jd] Read the job brief from job_descriptions/senior_frontend_react.txt (79 words).",
+      "[extract_requirements] rule-based parser: must-have = React 3+y, TypeScript, JavaScript, HTML, CSS; nice-to-have = Next.js, GraphQL, Jest or Cypress, Accessibility, AWS; 5+ yrs total",
+      "[search_resumes] Round 1: RAG query 'React TypeScript JavaScript HTML CSS React TypeScript JavaScript HTML CSS Next.js GraphQL Jest Cypress Accessibility AWS Senior Frontend Engineer' over 100 resumes -> kept top 10 (cut-off quick score 87.6). Most common misses: no HTML (85), no CSS (85), no React (80).",
+      "[rank_candidates] Round 2: scored 10 candidates requirement by requirement (evidenced years, resume quotes). Leader: John Carter (100).",
+      "[rank_candidates] Round 3: hire/no-hire -> Strong Hire 5, Hire 1, Borderline 3, No Hire 1.",
+      "[generate_report] Wrote the explainable match report to output/reports/senior_frontend_engineer_v1.md."
+     ],
+     "response": "## Shortlist: Senior Frontend Engineer\n**Senior Frontend Engineer**\nMust-have: React (3+ yrs), TypeScript, JavaScript, HTML, CSS\nNice-to-have: Next.js, GraphQL, Jest or Cypress, Accessibility, AWS\nExperience: 5+ years total\n\nScreened **100** resumes -> deep-analysed **10** -> recommendations below.\n\n| # | Candidate | Score | Verdict | Top strength | Main gap |\n|---|---|---|---|---|---|\n| 1 | John Carter | 100 | Strong Hire | React: 8 yrs evidenced, 5 above the bar | - |\n| 2 | Yusuf Yilmaz | 89.2 | Strong Hire | React: 14 yrs evidenced, 11 above the bar | GraphQL (nice-to-have): not found on resume |\n| 3 | Aisha Bello | 87.7 | Strong Hire | React: 6 yrs evidenced, 3 above the bar | Jest or Cypress (nice-to-have): none of Jest or Cypress found |\n| 4 | Alex Chen | 87.3 | Strong Hire | React: 5 yrs evidenced, 2 above the bar | Next.js (nice-to-have): listed on resume but no work experience shows it |\n| 5 | Grace Tan | 87 | Strong Hire | React: 4 yrs evidenced, 1 above the bar | GraphQL (nice-to-have): not found on resume |\n| 6 | Jonas Garcia | 79.8 | Hire | React: 3 yrs evidenced | Next.js (nice-to-have): not found on resume |\n| 7 | Samir Gupta | 77.6 | Borderline | React: 3 yrs evidenced | TypeScript (must-have): listed on resume but no work experience shows it |\n| 8 | Jane Brooks | 76 | Borderline | React: 5 yrs evidenced, 2 above the bar | TypeScript (must-have): listed on resume but no work experience shows it |\n| 9 | Sofia Rossi | 75.7 | Borderline | TypeScript: 6 yrs evidenced | React (must-have): 1 of 3 required years evidenced |\n| 10 | Yara Johansson | 69.2 | No Hire | Bonus: GraphQL | React (must-have): 2 of 3 required years evidenced |\n\n### Agent assessment\nJohn Carter leads with 100/100: React: 8 yrs evidenced, 5 above the bar, TypeScript: 7 yrs evidenced, Bonus: Next.js.\n\n### Borderline - what would make them a hire\n- **Samir Gupta**: TypeScript: listed but never shown in a role. Ask for a TypeScript code sample or a short take-home; if it holds up they clear this bar.\n- **Jane Brooks**: TypeScript: listed but never shown in a role. Ask for a TypeScript code sample or a short take-home; if it holds up they clear this bar.\n- **Sofia Rossi**: React: 1 of 3 required years evidenced. Probe adjacent experience in the screen; consider a mid-level offer or revisit in 6-12 months.\n\nFull match report (all 10 candidates, evidence per requirement): `output/reports/senior_frontend_engineer_v1.md`\n\n_Try: \"Compare the top 3\", \"Why did X rank higher than Y?\", \"Make GraphQL a must-have\", \"Interview questions for X\", \"Tell me about X\"._",
+     "seconds": 0.04,
+     "shortlist": [
+      {
+       "rank": 1,
+       "name": "John Carter",
+       "score": 100.0,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 2,
+       "name": "Yusuf Yilmaz",
+       "score": 89.2,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 3,
+       "name": "Aisha Bello",
+       "score": 87.7,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 4,
+       "name": "Alex Chen",
+       "score": 87.3,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 5,
+       "name": "Grace Tan",
+       "score": 87.0,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 6,
+       "name": "Jonas Garcia",
+       "score": 79.8,
+       "verdict": "Hire"
+      },
+      {
+       "rank": 7,
+       "name": "Samir Gupta",
+       "score": 77.6,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 8,
+       "name": "Jane Brooks",
+       "score": 76.0,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 9,
+       "name": "Sofia Rossi",
+       "score": 75.7,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 10,
+       "name": "Yara Johansson",
+       "score": 69.2,
+       "verdict": "No Hire"
+      }
+     ],
+     "ranking_changes": [],
+     "requirements": {
+      "title": "Senior Frontend Engineer",
+      "must_have": [
+       {
+        "skill": "React",
+        "min_years": 3.0,
+        "weight": 1.0
+       },
+       {
+        "skill": "TypeScript",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "JavaScript",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "HTML",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "CSS",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "nice_to_have": [
+       {
+        "skill": "Next.js",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "GraphQL",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Jest or Cypress",
+        "min_years": 0,
+        "weight": 1.0,
+        "any_of": [
+         "Jest",
+         "Cypress"
+        ]
+       },
+       {
+        "skill": "Accessibility",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "AWS",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "min_total_years": 5.0,
+      "seniority": "senior"
+     },
+     "done": false
+    },
+    {
+     "user": "Show me the shortlist again",
+     "nodes": [
+      "human_feedback",
+      "generate_report"
+     ],
+     "reasoning": [
+      "[human_feedback] Routed to 'report' via rules",
+      "[generate_report] Wrote the explainable match report to output/reports/senior_frontend_engineer_v1.md."
+     ],
+     "response": "## Shortlist: Senior Frontend Engineer\n**Senior Frontend Engineer**\nMust-have: React (3+ yrs), TypeScript, JavaScript, HTML, CSS\nNice-to-have: Next.js, GraphQL, Jest or Cypress, Accessibility, AWS\nExperience: 5+ years total\n\nScreened **100** resumes -> deep-analysed **10** -> recommendations below.\n\n| # | Candidate | Score | Verdict | Top strength | Main gap |\n|---|---|---|---|---|---|\n| 1 | John Carter | 100 | Strong Hire | React: 8 yrs evidenced, 5 above the bar | - |\n| 2 | Yusuf Yilmaz | 89.2 | Strong Hire | React: 14 yrs evidenced, 11 above the bar | GraphQL (nice-to-have): not found on resume |\n| 3 | Aisha Bello | 87.7 | Strong Hire | React: 6 yrs evidenced, 3 above the bar | Jest or Cypress (nice-to-have): none of Jest or Cypress found |\n| 4 | Alex Chen | 87.3 | Strong Hire | React: 5 yrs evidenced, 2 above the bar | Next.js (nice-to-have): listed on resume but no work experience shows it |\n| 5 | Grace Tan | 87 | Strong Hire | React: 4 yrs evidenced, 1 above the bar | GraphQL (nice-to-have): not found on resume |\n| 6 | Jonas Garcia | 79.8 | Hire | React: 3 yrs evidenced | Next.js (nice-to-have): not found on resume |\n| 7 | Samir Gupta | 77.6 | Borderline | React: 3 yrs evidenced | TypeScript (must-have): listed on resume but no work experience shows it |\n| 8 | Jane Brooks | 76 | Borderline | React: 5 yrs evidenced, 2 above the bar | TypeScript (must-have): listed on resume but no work experience shows it |\n| 9 | Sofia Rossi | 75.7 | Borderline | TypeScript: 6 yrs evidenced | React (must-have): 1 of 3 required years evidenced |\n| 10 | Yara Johansson | 69.2 | No Hire | Bonus: GraphQL | React (must-have): 2 of 3 required years evidenced |\n\n### Agent assessment\nJohn Carter leads with 100/100: React: 8 yrs evidenced, 5 above the bar, TypeScript: 7 yrs evidenced, Bonus: Next.js.\n\n### Borderline - what would make them a hire\n- **Samir Gupta**: TypeScript: listed but never shown in a role. Ask for a TypeScript code sample or a short take-home; if it holds up they clear this bar.\n- **Jane Brooks**: TypeScript: listed but never shown in a role. Ask for a TypeScript code sample or a short take-home; if it holds up they clear this bar.\n- **Sofia Rossi**: React: 1 of 3 required years evidenced. Probe adjacent experience in the screen; consider a mid-level offer or revisit in 6-12 months.\n\nFull match report (all 10 candidates, evidence per requirement): `output/reports/senior_frontend_engineer_v1.md`\n\n_Try: \"Compare the top 3\", \"Why did X rank higher than Y?\", \"Make GraphQL a must-have\", \"Interview questions for X\", \"Tell me about X\"._",
+     "seconds": 0.01,
+     "shortlist": [
+      {
+       "rank": 1,
+       "name": "John Carter",
+       "score": 100.0,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 2,
+       "name": "Yusuf Yilmaz",
+       "score": 89.2,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 3,
+       "name": "Aisha Bello",
+       "score": 87.7,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 4,
+       "name": "Alex Chen",
+       "score": 87.3,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 5,
+       "name": "Grace Tan",
+       "score": 87.0,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 6,
+       "name": "Jonas Garcia",
+       "score": 79.8,
+       "verdict": "Hire"
+      },
+      {
+       "rank": 7,
+       "name": "Samir Gupta",
+       "score": 77.6,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 8,
+       "name": "Jane Brooks",
+       "score": 76.0,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 9,
+       "name": "Sofia Rossi",
+       "score": 75.7,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 10,
+       "name": "Yara Johansson",
+       "score": 69.2,
+       "verdict": "No Hire"
+      }
+     ],
+     "ranking_changes": [],
+     "requirements": {
+      "title": "Senior Frontend Engineer",
+      "must_have": [
+       {
+        "skill": "React",
+        "min_years": 3.0,
+        "weight": 1.0
+       },
+       {
+        "skill": "TypeScript",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "JavaScript",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "HTML",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "CSS",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "nice_to_have": [
+       {
+        "skill": "Next.js",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "GraphQL",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Jest or Cypress",
+        "min_years": 0,
+        "weight": 1.0,
+        "any_of": [
+         "Jest",
+         "Cypress"
+        ]
+       },
+       {
+        "skill": "Accessibility",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "AWS",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "min_total_years": 5.0,
+      "seniority": "senior"
+     },
+     "done": false
+    }
+   ]
+  },
+  {
+   "name": "02_natural_language_compare",
+   "title": "Natural-language search + side-by-side comparison",
+   "goal": "Start from a one-line ask, then compare the top 3 head to head.",
+   "turns": [
+    {
+     "user": "Find me candidates with React and 3+ years experience",
+     "nodes": [
+      "parse_jd",
+      "extract_requirements",
+      "search_resumes",
+      "rank_candidates",
+      "generate_report"
+     ],
+     "reasoning": [
+      "[parse_jd] Read the job brief from chat (9 words).",
+      "[extract_requirements] rule-based parser: must-have = React 3+y; nice-to-have = none; 3+ yrs total",
+      "[search_resumes] Round 1: RAG query 'React React' over 100 resumes -> kept top 10 (cut-off quick score 93.8). Most common misses: no React (80).",
+      "[rank_candidates] Round 2: scored 10 candidates requirement by requirement (evidenced years, resume quotes). Leader: Aisha Bello (99.8).",
+      "[rank_candidates] Round 3: hire/no-hire -> Strong Hire 8, Borderline 1, No Hire 1.",
+      "[generate_report] Wrote the explainable match report to output/reports/candidates_with_react_3_yrs_v1.md."
+     ],
+     "response": "## Shortlist: Candidates with React 3+ yrs\n**Candidates with React 3+ yrs**\nMust-have: React (3+ yrs)\nNice-to-have: none\nExperience: 3+ years total\n\nScreened **100** resumes -> deep-analysed **10** -> recommendations below.\n\n| # | Candidate | Score | Verdict | Top strength | Main gap |\n|---|---|---|---|---|---|\n| 1 | Aisha Bello | 99.8 | Strong Hire | React: 6 yrs evidenced, 3 above the bar | - |\n| 2 | John Carter | 99.8 | Strong Hire | React: 8 yrs evidenced, 5 above the bar | - |\n| 3 | Yusuf Yilmaz | 99.8 | Strong Hire | React: 14 yrs evidenced, 11 above the bar | - |\n| 4 | Ivan Garcia | 99.7 | Strong Hire | React: 10 yrs evidenced, 7 above the bar | - |\n| 5 | Wen Costa | 99.7 | Strong Hire | React: 7 yrs evidenced, 4 above the bar | - |\n| 6 | Jane Brooks | 98.1 | Strong Hire | React: 5 yrs evidenced, 2 above the bar | - |\n| 7 | Jonas Garcia | 95 | Strong Hire | React: 3 yrs evidenced | - |\n| 8 | Tara Mensah | 94.8 | Strong Hire | React: 3 yrs evidenced | - |\n| 9 | Yara Johansson | 76.4 | Borderline | - | React (must-have): 2 of 3 required years evidenced |\n| 10 | Sofia Rossi | 58.1 | No Hire | 6 years total experience | React (must-have): 1 of 3 required years evidenced |\n\n### Agent assessment\nAisha Bello leads with 99.8/100: React: 6 yrs evidenced, 3 above the bar, 6 years total experience, Leadership/mentoring evidence.\n\n### Borderline - what would make them a hire\n- **Yara Johansson**: React: 2 of 3 required years evidenced. Probe adjacent experience in the screen; consider a mid-level offer or revisit in 6-12 months.\n\nFull match report (all 10 candidates, evidence per requirement): `output/reports/candidates_with_react_3_yrs_v1.md`\n\n_Try: \"Compare the top 3\", \"Why did X rank higher than Y?\", \"Make GraphQL a must-have\", \"Interview questions for X\", \"Tell me about X\"._",
+     "seconds": 0.01,
+     "shortlist": [
+      {
+       "rank": 1,
+       "name": "Aisha Bello",
+       "score": 99.8,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 2,
+       "name": "John Carter",
+       "score": 99.8,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 3,
+       "name": "Yusuf Yilmaz",
+       "score": 99.8,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 4,
+       "name": "Ivan Garcia",
+       "score": 99.7,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 5,
+       "name": "Wen Costa",
+       "score": 99.7,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 6,
+       "name": "Jane Brooks",
+       "score": 98.1,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 7,
+       "name": "Jonas Garcia",
+       "score": 95.0,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 8,
+       "name": "Tara Mensah",
+       "score": 94.8,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 9,
+       "name": "Yara Johansson",
+       "score": 76.4,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 10,
+       "name": "Sofia Rossi",
+       "score": 58.1,
+       "verdict": "No Hire"
+      }
+     ],
+     "ranking_changes": [],
+     "requirements": {
+      "title": "Candidates with React 3+ yrs",
+      "must_have": [
+       {
+        "skill": "React",
+        "min_years": 3.0,
+        "weight": 1.0
+       }
+      ],
+      "nice_to_have": [],
+      "min_total_years": 3.0,
+      "seniority": null
+     },
+     "done": false
+    },
+    {
+     "user": "Compare the top 3 matches side by side",
+     "nodes": [
+      "human_feedback",
+      "compare_candidates"
+     ],
+     "reasoning": [
+      "[human_feedback] Routed to 'compare' via rules; top 3",
+      "[compare_candidates] Compared Aisha Bello, John Carter, Yusuf Yilmaz; winner Aisha Bello."
+     ],
+     "response": "## Head-to-head: Aisha Bello vs John Carter vs Yusuf Yilmaz\n\n| Requirement | Aisha Bello | John Carter | Yusuf Yilmaz | Edge |\n|---|---|---|---|---|\n| React (must) | [+] 6 yrs evidenced (needs 3) | [+] 8 yrs evidenced (needs 3) | [+] 14 yrs evidenced (needs 3) | tie |\n| **Score / verdict** | **99.8** Strong Hire | **99.8** Strong Hire | **99.8** Strong Hire | Aisha Bello |\n\nAisha Bello comes out ahead overall, leading or sharing the lead on 0 of 1 requirement rows. Aisha Bello: Strong Hire (99.8). John Carter: Strong Hire (99.8). Yusuf Yilmaz: Strong Hire (99.8).",
+     "seconds": 0.0,
+     "shortlist": [
+      {
+       "rank": 1,
+       "name": "Aisha Bello",
+       "score": 99.8,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 2,
+       "name": "John Carter",
+       "score": 99.8,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 3,
+       "name": "Yusuf Yilmaz",
+       "score": 99.8,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 4,
+       "name": "Ivan Garcia",
+       "score": 99.7,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 5,
+       "name": "Wen Costa",
+       "score": 99.7,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 6,
+       "name": "Jane Brooks",
+       "score": 98.1,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 7,
+       "name": "Jonas Garcia",
+       "score": 95.0,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 8,
+       "name": "Tara Mensah",
+       "score": 94.8,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 9,
+       "name": "Yara Johansson",
+       "score": 76.4,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 10,
+       "name": "Sofia Rossi",
+       "score": 58.1,
+       "verdict": "No Hire"
+      }
+     ],
+     "ranking_changes": [],
+     "requirements": {
+      "title": "Candidates with React 3+ yrs",
+      "must_have": [
+       {
+        "skill": "React",
+        "min_years": 3.0,
+        "weight": 1.0
+       }
+      ],
+      "nice_to_have": [],
+      "min_total_years": 3.0,
+      "seniority": null
+     },
+     "done": false
+    }
+   ]
+  },
+  {
+   "name": "03_explain_ranking",
+   "title": "Why did John rank higher than Jane?",
+   "goal": "Explain a ranking with point deltas and requirement-level evidence.",
+   "turns": [
+    {
+     "user": "job_descriptions/senior_frontend_react.txt",
+     "nodes": [
+      "parse_jd",
+      "extract_requirements",
+      "search_resumes",
+      "rank_candidates",
+      "generate_report"
+     ],
+     "reasoning": [
+      "[parse_jd] Read the job brief from job_descriptions/senior_frontend_react.txt (79 words).",
+      "[extract_requirements] rule-based parser: must-have = React 3+y, TypeScript, JavaScript, HTML, CSS; nice-to-have = Next.js, GraphQL, Jest or Cypress, Accessibility, AWS; 5+ yrs total",
+      "[search_resumes] Round 1: RAG query 'React TypeScript JavaScript HTML CSS React TypeScript JavaScript HTML CSS Next.js GraphQL Jest Cypress Accessibility AWS Senior Frontend Engineer' over 100 resumes -> kept top 10 (cut-off quick score 87.6). Most common misses: no HTML (85), no CSS (85), no React (80).",
+      "[rank_candidates] Round 2: scored 10 candidates requirement by requirement (evidenced years, resume quotes). Leader: John Carter (100).",
+      "[rank_candidates] Round 3: hire/no-hire -> Strong Hire 5, Hire 1, Borderline 3, No Hire 1.",
+      "[generate_report] Wrote the explainable match report to output/reports/senior_frontend_engineer_v1.md."
+     ],
+     "response": "## Shortlist: Senior Frontend Engineer\n**Senior Frontend Engineer**\nMust-have: React (3+ yrs), TypeScript, JavaScript, HTML, CSS\nNice-to-have: Next.js, GraphQL, Jest or Cypress, Accessibility, AWS\nExperience: 5+ years total\n\nScreened **100** resumes -> deep-analysed **10** -> recommendations below.\n\n| # | Candidate | Score | Verdict | Top strength | Main gap |\n|---|---|---|---|---|---|\n| 1 | John Carter | 100 | Strong Hire | React: 8 yrs evidenced, 5 above the bar | - |\n| 2 | Yusuf Yilmaz | 89.2 | Strong Hire | React: 14 yrs evidenced, 11 above the bar | GraphQL (nice-to-have): not found on resume |\n| 3 | Aisha Bello | 87.7 | Strong Hire | React: 6 yrs evidenced, 3 above the bar | Jest or Cypress (nice-to-have): none of Jest or Cypress found |\n| 4 | Alex Chen | 87.3 | Strong Hire | React: 5 yrs evidenced, 2 above the bar | Next.js (nice-to-have): listed on resume but no work experience shows it |\n| 5 | Grace Tan | 87 | Strong Hire | React: 4 yrs evidenced, 1 above the bar | GraphQL (nice-to-have): not found on resume |\n| 6 | Jonas Garcia | 79.8 | Hire | React: 3 yrs evidenced | Next.js (nice-to-have): not found on resume |\n| 7 | Samir Gupta | 77.6 | Borderline | React: 3 yrs evidenced | TypeScript (must-have): listed on resume but no work experience shows it |\n| 8 | Jane Brooks | 76 | Borderline | React: 5 yrs evidenced, 2 above the bar | TypeScript (must-have): listed on resume but no work experience shows it |\n| 9 | Sofia Rossi | 75.7 | Borderline | TypeScript: 6 yrs evidenced | React (must-have): 1 of 3 required years evidenced |\n| 10 | Yara Johansson | 69.2 | No Hire | Bonus: GraphQL | React (must-have): 2 of 3 required years evidenced |\n\n### Agent assessment\nJohn Carter leads with 100/100: React: 8 yrs evidenced, 5 above the bar, TypeScript: 7 yrs evidenced, Bonus: Next.js.\n\n### Borderline - what would make them a hire\n- **Samir Gupta**: TypeScript: listed but never shown in a role. Ask for a TypeScript code sample or a short take-home; if it holds up they clear this bar.\n- **Jane Brooks**: TypeScript: listed but never shown in a role. Ask for a TypeScript code sample or a short take-home; if it holds up they clear this bar.\n- **Sofia Rossi**: React: 1 of 3 required years evidenced. Probe adjacent experience in the screen; consider a mid-level offer or revisit in 6-12 months.\n\nFull match report (all 10 candidates, evidence per requirement): `output/reports/senior_frontend_engineer_v1.md`\n\n_Try: \"Compare the top 3\", \"Why did X rank higher than Y?\", \"Make GraphQL a must-have\", \"Interview questions for X\", \"Tell me about X\"._",
+     "seconds": 0.03,
+     "shortlist": [
+      {
+       "rank": 1,
+       "name": "John Carter",
+       "score": 100.0,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 2,
+       "name": "Yusuf Yilmaz",
+       "score": 89.2,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 3,
+       "name": "Aisha Bello",
+       "score": 87.7,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 4,
+       "name": "Alex Chen",
+       "score": 87.3,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 5,
+       "name": "Grace Tan",
+       "score": 87.0,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 6,
+       "name": "Jonas Garcia",
+       "score": 79.8,
+       "verdict": "Hire"
+      },
+      {
+       "rank": 7,
+       "name": "Samir Gupta",
+       "score": 77.6,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 8,
+       "name": "Jane Brooks",
+       "score": 76.0,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 9,
+       "name": "Sofia Rossi",
+       "score": 75.7,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 10,
+       "name": "Yara Johansson",
+       "score": 69.2,
+       "verdict": "No Hire"
+      }
+     ],
+     "ranking_changes": [],
+     "requirements": {
+      "title": "Senior Frontend Engineer",
+      "must_have": [
+       {
+        "skill": "React",
+        "min_years": 3.0,
+        "weight": 1.0
+       },
+       {
+        "skill": "TypeScript",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "JavaScript",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "HTML",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "CSS",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "nice_to_have": [
+       {
+        "skill": "Next.js",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "GraphQL",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Jest or Cypress",
+        "min_years": 0,
+        "weight": 1.0,
+        "any_of": [
+         "Jest",
+         "Cypress"
+        ]
+       },
+       {
+        "skill": "Accessibility",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "AWS",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "min_total_years": 5.0,
+      "seniority": "senior"
+     },
+     "done": false
+    },
+    {
+     "user": "Why did John rank higher than Jane?",
+     "nodes": [
+      "human_feedback",
+      "explain_ranking"
+     ],
+     "reasoning": [
+      "[human_feedback] Routed to 'explain' via rules; candidates: John Carter, Jane Brooks",
+      "[explain_ranking] John Carter vs Jane Brooks: gap 24 pts, biggest driver nice-to-haves."
+     ],
+     "response": "## Why John Carter (#1, 100) ranks above Jane Brooks (#8, 76)\n\nGap: **24 points**. Where it comes from:\n- nice-to-haves: +14 pts for John Carter\n- must-have coverage: +8.3 pts for John Carter\n- depth beyond the bar: +1.3 pts for John Carter\n\n| Requirement | John Carter | Jane Brooks |\n|---|---|---|\n| TypeScript (must) | 7 yrs evidenced | listed on resume but no work experience shows it |\n| Next.js (nice) | 4 yrs evidenced | not found on resume |\n| GraphQL (nice) | 4 yrs evidenced | not found on resume |\n| Jest or Cypress (nice) | Jest: 4 yrs evidenced | Jest: listed on resume but no work experience shows it |\n| AWS (nice) | 3 yrs evidenced | not found on resume |\n\nJohn Carter is ahead by 24 points, mostly from nice-to-haves (+14). Key differences - TypeScript: 7 yrs evidenced vs listed on resume but no work experience shows it; Next.js: 4 yrs evidenced vs not found on resume.",
+     "seconds": 0.0,
+     "shortlist": [
+      {
+       "rank": 1,
+       "name": "John Carter",
+       "score": 100.0,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 2,
+       "name": "Yusuf Yilmaz",
+       "score": 89.2,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 3,
+       "name": "Aisha Bello",
+       "score": 87.7,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 4,
+       "name": "Alex Chen",
+       "score": 87.3,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 5,
+       "name": "Grace Tan",
+       "score": 87.0,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 6,
+       "name": "Jonas Garcia",
+       "score": 79.8,
+       "verdict": "Hire"
+      },
+      {
+       "rank": 7,
+       "name": "Samir Gupta",
+       "score": 77.6,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 8,
+       "name": "Jane Brooks",
+       "score": 76.0,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 9,
+       "name": "Sofia Rossi",
+       "score": 75.7,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 10,
+       "name": "Yara Johansson",
+       "score": 69.2,
+       "verdict": "No Hire"
+      }
+     ],
+     "ranking_changes": [],
+     "requirements": {
+      "title": "Senior Frontend Engineer",
+      "must_have": [
+       {
+        "skill": "React",
+        "min_years": 3.0,
+        "weight": 1.0
+       },
+       {
+        "skill": "TypeScript",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "JavaScript",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "HTML",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "CSS",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "nice_to_have": [
+       {
+        "skill": "Next.js",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "GraphQL",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Jest or Cypress",
+        "min_years": 0,
+        "weight": 1.0,
+        "any_of": [
+         "Jest",
+         "Cypress"
+        ]
+       },
+       {
+        "skill": "Accessibility",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "AWS",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "min_total_years": 5.0,
+      "seniority": "senior"
+     },
+     "done": false
+    },
+    {
+     "user": "Tell me about Jane",
+     "nodes": [
+      "human_feedback",
+      "candidate_report"
+     ],
+     "reasoning": [
+      "[human_feedback] Routed to 'detail' via rules; candidates: Jane Brooks",
+      "[candidate_report] Match report for Jane Brooks."
+     ],
+     "response": "### 8. Jane Brooks - Frontend Developer  (76/100, Borderline)\n*resumes/resume_jane_brooks.docx | 5 yrs total*\n\n**Recommendation:** Borderline: close: TypeScript is listed on resume but no work experience shows it (score 76/100, 4/5 must-haves met)\n\n| Requirement | Type | Status | Evidence |\n|---|---|---|---|\n| React 3+ yrs | must | met | Implemented React component libraries from Figma designs with Tailwind CSS. |\n| TypeScript | must | listed | listed on resume but no work experience shows it |\n| JavaScript | must | met | Built patient-portal features in React and JavaScript with Redux and Storybook. |\n| HTML | must | met | Maintained jQuery and HTML/CSS sites for local businesses. |\n| CSS | must | met | Implemented React component libraries from Figma designs with Tailwind CSS. |\n| Next.js | nice | missing | not found on resume |\n| GraphQL | nice | missing | not found on resume |\n| Jest or Cypress | nice | listed | Jest: listed on resume but no work experience shows it |\n| Accessibility | nice | met | Drove accessibility fixes to WCAG 2.1 AA across 40 screens. |\n| AWS | nice | missing | not found on resume |\n\n**Strengths:** React: 5 yrs evidenced, 2 above the bar; Bonus: Accessibility; Certified: Meta Front-End Developer Professional Certificate (2021)\n**Gaps:** TypeScript (must-have): listed on resume but no work experience shows it; Next.js (nice-to-have): not found on resume; GraphQL (nice-to-have): not found on resume; Jest or Cypress (nice-to-have): Jest: listed on resume but no work experience shows it; AWS (nice-to-have): not found on resume\n\n**Improvement suggestions:**\n- TypeScript: listed but never shown in a role. Ask for a TypeScript code sample or a short take-home; if it holds up they clear this bar.",
+     "seconds": 0.0,
+     "shortlist": [
+      {
+       "rank": 1,
+       "name": "John Carter",
+       "score": 100.0,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 2,
+       "name": "Yusuf Yilmaz",
+       "score": 89.2,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 3,
+       "name": "Aisha Bello",
+       "score": 87.7,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 4,
+       "name": "Alex Chen",
+       "score": 87.3,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 5,
+       "name": "Grace Tan",
+       "score": 87.0,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 6,
+       "name": "Jonas Garcia",
+       "score": 79.8,
+       "verdict": "Hire"
+      },
+      {
+       "rank": 7,
+       "name": "Samir Gupta",
+       "score": 77.6,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 8,
+       "name": "Jane Brooks",
+       "score": 76.0,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 9,
+       "name": "Sofia Rossi",
+       "score": 75.7,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 10,
+       "name": "Yara Johansson",
+       "score": 69.2,
+       "verdict": "No Hire"
+      }
+     ],
+     "ranking_changes": [],
+     "requirements": {
+      "title": "Senior Frontend Engineer",
+      "must_have": [
+       {
+        "skill": "React",
+        "min_years": 3.0,
+        "weight": 1.0
+       },
+       {
+        "skill": "TypeScript",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "JavaScript",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "HTML",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "CSS",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "nice_to_have": [
+       {
+        "skill": "Next.js",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "GraphQL",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Jest or Cypress",
+        "min_years": 0,
+        "weight": 1.0,
+        "any_of": [
+         "Jest",
+         "Cypress"
+        ]
+       },
+       {
+        "skill": "Accessibility",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "AWS",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "min_total_years": 5.0,
+      "seniority": "senior"
+     },
+     "done": false
+    }
+   ]
+  },
+  {
+   "name": "04_iterative_refinement",
+   "title": "Change requirements mid-conversation, re-rank, explain the moves",
+   "goal": "Make GraphQL a must-have, relax React years, then undo GraphQL; the agent re-screens each time.",
+   "turns": [
+    {
+     "user": "job_descriptions/senior_frontend_react.txt",
+     "nodes": [
+      "parse_jd",
+      "extract_requirements",
+      "search_resumes",
+      "rank_candidates",
+      "generate_report"
+     ],
+     "reasoning": [
+      "[parse_jd] Read the job brief from job_descriptions/senior_frontend_react.txt (79 words).",
+      "[extract_requirements] rule-based parser: must-have = React 3+y, TypeScript, JavaScript, HTML, CSS; nice-to-have = Next.js, GraphQL, Jest or Cypress, Accessibility, AWS; 5+ yrs total",
+      "[search_resumes] Round 1: RAG query 'React TypeScript JavaScript HTML CSS React TypeScript JavaScript HTML CSS Next.js GraphQL Jest Cypress Accessibility AWS Senior Frontend Engineer' over 100 resumes -> kept top 10 (cut-off quick score 87.6). Most common misses: no HTML (85), no CSS (85), no React (80).",
+      "[rank_candidates] Round 2: scored 10 candidates requirement by requirement (evidenced years, resume quotes). Leader: John Carter (100).",
+      "[rank_candidates] Round 3: hire/no-hire -> Strong Hire 5, Hire 1, Borderline 3, No Hire 1.",
+      "[generate_report] Wrote the explainable match report to output/reports/senior_frontend_engineer_v1.md."
+     ],
+     "response": "## Shortlist: Senior Frontend Engineer\n**Senior Frontend Engineer**\nMust-have: React (3+ yrs), TypeScript, JavaScript, HTML, CSS\nNice-to-have: Next.js, GraphQL, Jest or Cypress, Accessibility, AWS\nExperience: 5+ years total\n\nScreened **100** resumes -> deep-analysed **10** -> recommendations below.\n\n| # | Candidate | Score | Verdict | Top strength | Main gap |\n|---|---|---|---|---|---|\n| 1 | John Carter | 100 | Strong Hire | React: 8 yrs evidenced, 5 above the bar | - |\n| 2 | Yusuf Yilmaz | 89.2 | Strong Hire | React: 14 yrs evidenced, 11 above the bar | GraphQL (nice-to-have): not found on resume |\n| 3 | Aisha Bello | 87.7 | Strong Hire | React: 6 yrs evidenced, 3 above the bar | Jest or Cypress (nice-to-have): none of Jest or Cypress found |\n| 4 | Alex Chen | 87.3 | Strong Hire | React: 5 yrs evidenced, 2 above the bar | Next.js (nice-to-have): listed on resume but no work experience shows it |\n| 5 | Grace Tan | 87 | Strong Hire | React: 4 yrs evidenced, 1 above the bar | GraphQL (nice-to-have): not found on resume |\n| 6 | Jonas Garcia | 79.8 | Hire | React: 3 yrs evidenced | Next.js (nice-to-have): not found on resume |\n| 7 | Samir Gupta | 77.6 | Borderline | React: 3 yrs evidenced | TypeScript (must-have): listed on resume but no work experience shows it |\n| 8 | Jane Brooks | 76 | Borderline | React: 5 yrs evidenced, 2 above the bar | TypeScript (must-have): listed on resume but no work experience shows it |\n| 9 | Sofia Rossi | 75.7 | Borderline | TypeScript: 6 yrs evidenced | React (must-have): 1 of 3 required years evidenced |\n| 10 | Yara Johansson | 69.2 | No Hire | Bonus: GraphQL | React (must-have): 2 of 3 required years evidenced |\n\n### Agent assessment\nJohn Carter leads with 100/100: React: 8 yrs evidenced, 5 above the bar, TypeScript: 7 yrs evidenced, Bonus: Next.js.\n\n### Borderline - what would make them a hire\n- **Samir Gupta**: TypeScript: listed but never shown in a role. Ask for a TypeScript code sample or a short take-home; if it holds up they clear this bar.\n- **Jane Brooks**: TypeScript: listed but never shown in a role. Ask for a TypeScript code sample or a short take-home; if it holds up they clear this bar.\n- **Sofia Rossi**: React: 1 of 3 required years evidenced. Probe adjacent experience in the screen; consider a mid-level offer or revisit in 6-12 months.\n\nFull match report (all 10 candidates, evidence per requirement): `output/reports/senior_frontend_engineer_v1.md`\n\n_Try: \"Compare the top 3\", \"Why did X rank higher than Y?\", \"Make GraphQL a must-have\", \"Interview questions for X\", \"Tell me about X\"._",
+     "seconds": 0.03,
+     "shortlist": [
+      {
+       "rank": 1,
+       "name": "John Carter",
+       "score": 100.0,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 2,
+       "name": "Yusuf Yilmaz",
+       "score": 89.2,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 3,
+       "name": "Aisha Bello",
+       "score": 87.7,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 4,
+       "name": "Alex Chen",
+       "score": 87.3,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 5,
+       "name": "Grace Tan",
+       "score": 87.0,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 6,
+       "name": "Jonas Garcia",
+       "score": 79.8,
+       "verdict": "Hire"
+      },
+      {
+       "rank": 7,
+       "name": "Samir Gupta",
+       "score": 77.6,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 8,
+       "name": "Jane Brooks",
+       "score": 76.0,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 9,
+       "name": "Sofia Rossi",
+       "score": 75.7,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 10,
+       "name": "Yara Johansson",
+       "score": 69.2,
+       "verdict": "No Hire"
+      }
+     ],
+     "ranking_changes": [],
+     "requirements": {
+      "title": "Senior Frontend Engineer",
+      "must_have": [
+       {
+        "skill": "React",
+        "min_years": 3.0,
+        "weight": 1.0
+       },
+       {
+        "skill": "TypeScript",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "JavaScript",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "HTML",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "CSS",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "nice_to_have": [
+       {
+        "skill": "Next.js",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "GraphQL",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Jest or Cypress",
+        "min_years": 0,
+        "weight": 1.0,
+        "any_of": [
+         "Jest",
+         "Cypress"
+        ]
+       },
+       {
+        "skill": "Accessibility",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "AWS",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "min_total_years": 5.0,
+      "seniority": "senior"
+     },
+     "done": false
+    },
+    {
+     "user": "Make GraphQL a must-have and relax React to 2 years",
+     "nodes": [
+      "human_feedback",
+      "refine_requirements",
+      "search_resumes",
+      "rank_candidates",
+      "generate_report"
+     ],
+     "reasoning": [
+      "[human_feedback] Routed to 'refine' via rules",
+      "[refine_requirements] (rule-based) GraphQL is now a must-have (was nice-to-have); React requirement changed from 3+ to 2+ years. Re-screening the pool.",
+      "[search_resumes] Round 1: RAG query 'React TypeScript JavaScript HTML CSS GraphQL React TypeScript JavaScript HTML CSS GraphQL Next.js Jest Cypress Accessibility AWS Senior Frontend Engineer' over 100 resumes -> kept top 10 (cut-off quick score 80.9). Most common misses: no HTML (85), no CSS (85), no GraphQL (80).",
+      "[rank_candidates] Round 2: scored 10 candidates requirement by requirement (evidenced years, resume quotes). Leader: John Carter (100).",
+      "[rank_candidates] Round 3: hire/no-hire -> Strong Hire 1, Hire 1, Borderline 1, No Hire 7.",
+      "[rank_candidates] Re-ranked after the requirement change: 11 candidates moved.",
+      "[generate_report] Wrote the explainable match report to output/reports/senior_frontend_engineer_v2.md."
+     ],
+     "response": "## Shortlist: Senior Frontend Engineer\n**Senior Frontend Engineer**\nMust-have: React (2+ yrs), TypeScript, JavaScript, HTML, CSS, GraphQL\nNice-to-have: Next.js, Jest or Cypress, Accessibility, AWS\nExperience: 5+ years total\n\nScreened **100** resumes -> deep-analysed **10** -> recommendations below.\n\n| # | Candidate | Score | Verdict | Top strength | Main gap |\n|---|---|---|---|---|---|\n| 1 | John Carter | 100 | Strong Hire | React: 8 yrs evidenced, 6 above the bar | - |\n| 2 | Aisha Bello | 84.7 | Hire | React: 6 yrs evidenced, 4 above the bar | Jest or Cypress (nice-to-have): none of Jest or Cypress found |\n| 3 | Yara Johansson | 71.6 | Borderline | React: 2 yrs evidenced | TypeScript (must-have): listed on resume but no work experience shows it |\n| 4 | Yusuf Yilmaz | 66.3 | No Hire | React: 14 yrs evidenced, 12 above the bar | GraphQL (must-have): not found on resume |\n| 5 | Alex Chen | 64.1 | No Hire | React: 5 yrs evidenced, 3 above the bar | GraphQL (must-have): not found on resume |\n| 6 | Ken Watanabe | 64.1 | No Hire | TypeScript: 7 yrs evidenced | React (must-have): not found on resume |\n| 7 | Grace Tan | 63.8 | No Hire | React: 4 yrs evidenced, 2 above the bar | GraphQL (must-have): not found on resume |\n| 8 | Chen Usman | 59.2 | No Hire | React: 6 yrs evidenced, 4 above the bar | TypeScript (must-have): not found on resume |\n| 9 | Samir Gupta | 56 | No Hire | React: 3 yrs evidenced, 1 above the bar | TypeScript (must-have): listed on resume but no work experience shows it |\n| 10 | Jane Brooks | 53.8 | No Hire | React: 5 yrs evidenced, 3 above the bar | TypeScript (must-have): listed on resume but no work experience shows it |\n\n### What changed\n- **Aisha Bello** #3 -> #2 (up; 87.7 -> 84.7): React (must-have) met, GraphQL (must-have) met; nice-to-haves -3.0\n- **Yara Johansson** #10 -> #3 (up; 69.2 -> 71.6): React (must-have) met, GraphQL (must-have) met; must-have coverage +5.1; nice-to-haves -2.5\n- **Yusuf Yilmaz** #2 -> #4 (down; 89.2 -> 66.3): GraphQL (must-have) missing, React (must-have) met; must-have coverage -9.2; nice-to-haves +2.5\n- **Alex Chen** #4 -> #5 (down; 87.3 -> 64.1): GraphQL (must-have) missing, React (must-have) met; must-have coverage -9.2; nice-to-haves +2.0\n- **Ken Watanabe** entered at #6 (64.1): newly entered the shortlist\n- **Grace Tan** #5 -> #7 (down; 87 -> 63.8): GraphQL (must-have) missing, React (must-have) met; must-have coverage -9.2; nice-to-haves +2.0\n- **Chen Usman** entered at #8 (59.2): newly entered the shortlist\n- **Samir Gupta** #7 -> #9 (down; 77.6 -> 56): GraphQL (must-have) missing, React (must-have) met; must-have coverage -7.8; nice-to-haves +2.0\n- **Jane Brooks** #8 -> #10 (down; 76 -> 53.8): GraphQL (must-have) missing, React (must-have) met; must-have coverage -7.8; nice-to-haves +1.5\n- **Jonas Garcia** dropped out (was #6, 79.8)\n- **Sofia Rossi** dropped out (was #9, 75.7)\n\n### Agent assessment\nJohn Carter leads with 100/100: React: 8 yrs evidenced, 6 above the bar, TypeScript: 7 yrs evidenced, GraphQL: 4 yrs evidenced.\n\n### Borderline - what would make them a hire\n- **Yara Johansson**: TypeScript: listed but never shown in a role. Ask for a TypeScript code sample or a short take-home; if it holds up they clear this bar.\n\nFull match report (all 10 candidates, evidence per requirement): `output/reports/senior_frontend_engineer_v2.md`\n\n_Try: \"Compare the top 3\", \"Why did X rank higher than Y?\", \"Make GraphQL a must-have\", \"Interview questions for X\", \"Tell me about X\"._",
+     "seconds": 0.03,
+     "shortlist": [
+      {
+       "rank": 1,
+       "name": "John Carter",
+       "score": 100.0,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 2,
+       "name": "Aisha Bello",
+       "score": 84.7,
+       "verdict": "Hire"
+      },
+      {
+       "rank": 3,
+       "name": "Yara Johansson",
+       "score": 71.6,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 4,
+       "name": "Yusuf Yilmaz",
+       "score": 66.3,
+       "verdict": "No Hire"
+      },
+      {
+       "rank": 5,
+       "name": "Alex Chen",
+       "score": 64.1,
+       "verdict": "No Hire"
+      },
+      {
+       "rank": 6,
+       "name": "Ken Watanabe",
+       "score": 64.1,
+       "verdict": "No Hire"
+      },
+      {
+       "rank": 7,
+       "name": "Grace Tan",
+       "score": 63.8,
+       "verdict": "No Hire"
+      },
+      {
+       "rank": 8,
+       "name": "Chen Usman",
+       "score": 59.2,
+       "verdict": "No Hire"
+      },
+      {
+       "rank": 9,
+       "name": "Samir Gupta",
+       "score": 56.0,
+       "verdict": "No Hire"
+      },
+      {
+       "rank": 10,
+       "name": "Jane Brooks",
+       "score": 53.8,
+       "verdict": "No Hire"
+      }
+     ],
+     "ranking_changes": [
+      {
+       "name": "Aisha Bello",
+       "from": 3,
+       "to": 2,
+       "score_from": 87.7,
+       "score_to": 84.7,
+       "reason": "React (must-have) met, GraphQL (must-have) met; nice-to-haves -3.0"
+      },
+      {
+       "name": "Yara Johansson",
+       "from": 10,
+       "to": 3,
+       "score_from": 69.2,
+       "score_to": 71.6,
+       "reason": "React (must-have) met, GraphQL (must-have) met; must-have coverage +5.1; nice-to-haves -2.5"
+      },
+      {
+       "name": "Yusuf Yilmaz",
+       "from": 2,
+       "to": 4,
+       "score_from": 89.2,
+       "score_to": 66.3,
+       "reason": "GraphQL (must-have) missing, React (must-have) met; must-have coverage -9.2; nice-to-haves +2.5"
+      },
+      {
+       "name": "Alex Chen",
+       "from": 4,
+       "to": 5,
+       "score_from": 87.3,
+       "score_to": 64.1,
+       "reason": "GraphQL (must-have) missing, React (must-have) met; must-have coverage -9.2; nice-to-haves +2.0"
+      },
+      {
+       "name": "Ken Watanabe",
+       "from": null,
+       "to": 6,
+       "score_from": null,
+       "score_to": 64.1,
+       "reason": "newly entered the shortlist"
+      },
+      {
+       "name": "Grace Tan",
+       "from": 5,
+       "to": 7,
+       "score_from": 87.0,
+       "score_to": 63.8,
+       "reason": "GraphQL (must-have) missing, React (must-have) met; must-have coverage -9.2; nice-to-haves +2.0"
+      },
+      {
+       "name": "Chen Usman",
+       "from": null,
+       "to": 8,
+       "score_from": null,
+       "score_to": 59.2,
+       "reason": "newly entered the shortlist"
+      },
+      {
+       "name": "Samir Gupta",
+       "from": 7,
+       "to": 9,
+       "score_from": 77.6,
+       "score_to": 56.0,
+       "reason": "GraphQL (must-have) missing, React (must-have) met; must-have coverage -7.8; nice-to-haves +2.0"
+      },
+      {
+       "name": "Jane Brooks",
+       "from": 8,
+       "to": 10,
+       "score_from": 76.0,
+       "score_to": 53.8,
+       "reason": "GraphQL (must-have) missing, React (must-have) met; must-have coverage -7.8; nice-to-haves +1.5"
+      },
+      {
+       "name": "Jonas Garcia",
+       "from": 6,
+       "to": null,
+       "score_from": 79.8,
+       "score_to": null,
+       "reason": "dropped out of the shortlist"
+      },
+      {
+       "name": "Sofia Rossi",
+       "from": 9,
+       "to": null,
+       "score_from": 75.7,
+       "score_to": null,
+       "reason": "dropped out of the shortlist"
+      }
+     ],
+     "requirements": {
+      "title": "Senior Frontend Engineer",
+      "must_have": [
+       {
+        "skill": "React",
+        "min_years": 2.0,
+        "weight": 1.0
+       },
+       {
+        "skill": "TypeScript",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "JavaScript",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "HTML",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "CSS",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "GraphQL",
+        "min_years": 0.0,
+        "weight": 1.0
+       }
+      ],
+      "nice_to_have": [
+       {
+        "skill": "Next.js",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Jest or Cypress",
+        "min_years": 0,
+        "weight": 1.0,
+        "any_of": [
+         "Jest",
+         "Cypress"
+        ]
+       },
+       {
+        "skill": "Accessibility",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "AWS",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "min_total_years": 5.0,
+      "seniority": "senior"
+     },
+     "done": false
+    },
+    {
+     "user": "Actually GraphQL is nice to have again",
+     "nodes": [
+      "human_feedback",
+      "refine_requirements",
+      "search_resumes",
+      "rank_candidates",
+      "generate_report"
+     ],
+     "reasoning": [
+      "[human_feedback] Routed to 'refine' via rules",
+      "[refine_requirements] (rule-based) GraphQL is now nice-to-have. Re-screening the pool.",
+      "[search_resumes] Round 1: RAG query 'React TypeScript JavaScript HTML CSS React TypeScript JavaScript HTML CSS Next.js Jest Cypress Accessibility AWS GraphQL Senior Frontend Engineer' over 100 resumes -> kept top 10 (cut-off quick score 87.6). Most common misses: no HTML (85), no CSS (85), no React (80).",
+      "[rank_candidates] Round 2: scored 10 candidates requirement by requirement (evidenced years, resume quotes). Leader: John Carter (100).",
+      "[rank_candidates] Round 3: hire/no-hire -> Strong Hire 5, Hire 1, Borderline 4.",
+      "[rank_candidates] Re-ranked after the requirement change: 11 candidates moved.",
+      "[generate_report] Wrote the explainable match report to output/reports/senior_frontend_engineer_v3.md."
+     ],
+     "response": "## Shortlist: Senior Frontend Engineer\n**Senior Frontend Engineer**\nMust-have: React (2+ yrs), TypeScript, JavaScript, HTML, CSS\nNice-to-have: Next.js, Jest or Cypress, Accessibility, AWS, GraphQL\nExperience: 5+ years total\n\nScreened **100** resumes -> deep-analysed **10** -> recommendations below.\n\n| # | Candidate | Score | Verdict | Top strength | Main gap |\n|---|---|---|---|---|---|\n| 1 | John Carter | 100 | Strong Hire | React: 8 yrs evidenced, 6 above the bar | - |\n| 2 | Yusuf Yilmaz | 89.2 | Strong Hire | React: 14 yrs evidenced, 12 above the bar | Jest or Cypress (nice-to-have): none of Jest or Cypress found |\n| 3 | Aisha Bello | 87.7 | Strong Hire | React: 6 yrs evidenced, 4 above the bar | Jest or Cypress (nice-to-have): none of Jest or Cypress found |\n| 4 | Alex Chen | 87.6 | Strong Hire | React: 5 yrs evidenced, 3 above the bar | Next.js (nice-to-have): listed on resume but no work experience shows it |\n| 5 | Grace Tan | 87.3 | Strong Hire | React: 4 yrs evidenced, 2 above the bar | Accessibility (nice-to-have): not found on resume |\n| 6 | Jonas Garcia | 80.1 | Hire | React: 3 yrs evidenced, 1 above the bar | Next.js (nice-to-have): not found on resume |\n| 7 | Samir Gupta | 77.9 | Borderline | React: 3 yrs evidenced, 1 above the bar | TypeScript (must-have): listed on resume but no work experience shows it |\n| 8 | Sofia Rossi | 77.5 | Borderline | TypeScript: 6 yrs evidenced | React (must-have): 1 of 2 required years evidenced |\n| 9 | Jane Brooks | 76.3 | Borderline | React: 5 yrs evidenced, 3 above the bar | TypeScript (must-have): listed on resume but no work experience shows it |\n| 10 | Yara Johansson | 72.9 | Borderline | React: 2 yrs evidenced | TypeScript (must-have): listed on resume but no work experience shows it |\n\n### What changed\n- **Yusuf Yilmaz** #4 -> #2 (up; 66.3 -> 89.2): GraphQL (nice-to-have) missing; must-have coverage +9.2; nice-to-haves -2.5\n- **Aisha Bello** #2 -> #3 (down; 84.7 -> 87.7): GraphQL (nice-to-have) met; nice-to-haves +3.0\n- **Alex Chen** #5 -> #4 (up; 64.1 -> 87.6): GraphQL (nice-to-have) missing; must-have coverage +9.2; nice-to-haves -2.0\n- **Grace Tan** #7 -> #5 (up; 63.8 -> 87.3): GraphQL (nice-to-have) missing; must-have coverage +9.2; nice-to-haves -2.0\n- **Jonas Garcia** entered at #6 (80.1): newly entered the shortlist\n- **Samir Gupta** #9 -> #7 (up; 56 -> 77.9): GraphQL (nice-to-have) missing; must-have coverage +7.8; nice-to-haves -2.0\n- **Sofia Rossi** entered at #8 (77.5): newly entered the shortlist\n- **Jane Brooks** #10 -> #9 (up; 53.8 -> 76.3): GraphQL (nice-to-have) missing; must-have coverage +7.8; nice-to-haves -1.5\n- **Yara Johansson** #3 -> #10 (down; 71.6 -> 72.9): GraphQL (nice-to-have) met; must-have coverage -1.4; nice-to-haves +2.5\n- **Ken Watanabe** dropped out (was #6, 64.1)\n- **Chen Usman** dropped out (was #8, 59.2)\n\n### Agent assessment\nJohn Carter leads with 100/100: React: 8 yrs evidenced, 6 above the bar, TypeScript: 7 yrs evidenced, Bonus: Next.js.\n\n### Borderline - what would make them a hire\n- **Samir Gupta**: TypeScript: listed but never shown in a role. Ask for a TypeScript code sample or a short take-home; if it holds up they clear this bar.\n- **Sofia Rossi**: React: 1 of 2 required years evidenced. Probe adjacent experience in the screen; consider a mid-level offer or revisit in 6-12 months.\n- **Jane Brooks**: TypeScript: listed but never shown in a role. Ask for a TypeScript code sample or a short take-home; if it holds up they clear this bar.\n\nFull match report (all 10 candidates, evidence per requirement): `output/reports/senior_frontend_engineer_v3.md`\n\n_Try: \"Compare the top 3\", \"Why did X rank higher than Y?\", \"Make GraphQL a must-have\", \"Interview questions for X\", \"Tell me about X\"._",
+     "seconds": 0.03,
+     "shortlist": [
+      {
+       "rank": 1,
+       "name": "John Carter",
+       "score": 100.0,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 2,
+       "name": "Yusuf Yilmaz",
+       "score": 89.2,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 3,
+       "name": "Aisha Bello",
+       "score": 87.7,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 4,
+       "name": "Alex Chen",
+       "score": 87.6,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 5,
+       "name": "Grace Tan",
+       "score": 87.3,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 6,
+       "name": "Jonas Garcia",
+       "score": 80.1,
+       "verdict": "Hire"
+      },
+      {
+       "rank": 7,
+       "name": "Samir Gupta",
+       "score": 77.9,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 8,
+       "name": "Sofia Rossi",
+       "score": 77.5,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 9,
+       "name": "Jane Brooks",
+       "score": 76.3,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 10,
+       "name": "Yara Johansson",
+       "score": 72.9,
+       "verdict": "Borderline"
+      }
+     ],
+     "ranking_changes": [
+      {
+       "name": "Yusuf Yilmaz",
+       "from": 4,
+       "to": 2,
+       "score_from": 66.3,
+       "score_to": 89.2,
+       "reason": "GraphQL (nice-to-have) missing; must-have coverage +9.2; nice-to-haves -2.5"
+      },
+      {
+       "name": "Aisha Bello",
+       "from": 2,
+       "to": 3,
+       "score_from": 84.7,
+       "score_to": 87.7,
+       "reason": "GraphQL (nice-to-have) met; nice-to-haves +3.0"
+      },
+      {
+       "name": "Alex Chen",
+       "from": 5,
+       "to": 4,
+       "score_from": 64.1,
+       "score_to": 87.6,
+       "reason": "GraphQL (nice-to-have) missing; must-have coverage +9.2; nice-to-haves -2.0"
+      },
+      {
+       "name": "Grace Tan",
+       "from": 7,
+       "to": 5,
+       "score_from": 63.8,
+       "score_to": 87.3,
+       "reason": "GraphQL (nice-to-have) missing; must-have coverage +9.2; nice-to-haves -2.0"
+      },
+      {
+       "name": "Jonas Garcia",
+       "from": null,
+       "to": 6,
+       "score_from": null,
+       "score_to": 80.1,
+       "reason": "newly entered the shortlist"
+      },
+      {
+       "name": "Samir Gupta",
+       "from": 9,
+       "to": 7,
+       "score_from": 56.0,
+       "score_to": 77.9,
+       "reason": "GraphQL (nice-to-have) missing; must-have coverage +7.8; nice-to-haves -2.0"
+      },
+      {
+       "name": "Sofia Rossi",
+       "from": null,
+       "to": 8,
+       "score_from": null,
+       "score_to": 77.5,
+       "reason": "newly entered the shortlist"
+      },
+      {
+       "name": "Jane Brooks",
+       "from": 10,
+       "to": 9,
+       "score_from": 53.8,
+       "score_to": 76.3,
+       "reason": "GraphQL (nice-to-have) missing; must-have coverage +7.8; nice-to-haves -1.5"
+      },
+      {
+       "name": "Yara Johansson",
+       "from": 3,
+       "to": 10,
+       "score_from": 71.6,
+       "score_to": 72.9,
+       "reason": "GraphQL (nice-to-have) met; must-have coverage -1.4; nice-to-haves +2.5"
+      },
+      {
+       "name": "Ken Watanabe",
+       "from": 6,
+       "to": null,
+       "score_from": 64.1,
+       "score_to": null,
+       "reason": "dropped out of the shortlist"
+      },
+      {
+       "name": "Chen Usman",
+       "from": 8,
+       "to": null,
+       "score_from": 59.2,
+       "score_to": null,
+       "reason": "dropped out of the shortlist"
+      }
+     ],
+     "requirements": {
+      "title": "Senior Frontend Engineer",
+      "must_have": [
+       {
+        "skill": "React",
+        "min_years": 2.0,
+        "weight": 1.0
+       },
+       {
+        "skill": "TypeScript",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "JavaScript",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "HTML",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "CSS",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "nice_to_have": [
+       {
+        "skill": "Next.js",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Jest or Cypress",
+        "min_years": 0,
+        "weight": 1.0,
+        "any_of": [
+         "Jest",
+         "Cypress"
+        ]
+       },
+       {
+        "skill": "Accessibility",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "AWS",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "GraphQL",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "min_total_years": 5.0,
+      "seniority": "senior"
+     },
+     "done": false
+    }
+   ]
+  },
+  {
+   "name": "05_backend_interview_prep",
+   "title": "Backend role: candidate deep dive + interview questions",
+   "goal": "Different JD; drill into a candidate and generate tailored screening questions.",
+   "turns": [
+    {
+     "user": "job_descriptions/backend_python.txt",
+     "nodes": [
+      "parse_jd",
+      "extract_requirements",
+      "search_resumes",
+      "rank_candidates",
+      "generate_report"
+     ],
+     "reasoning": [
+      "[parse_jd] Read the job brief from job_descriptions/backend_python.txt (51 words).",
+      "[extract_requirements] rule-based parser: must-have = Python 4+y, Django or FastAPI, PostgreSQL, REST; nice-to-have = Docker, Kubernetes, AWS, Celery or Redis, Terraform; 4+ yrs total",
+      "[search_resumes] Round 1: RAG query 'Python Django FastAPI PostgreSQL REST Python Django FastAPI PostgreSQL REST Docker Kubernetes AWS Celery Redis Terraform Backend Engineer (Python)' over 100 resumes -> kept top 10 (cut-off quick score 74.9). Most common misses: no PostgreSQL (81), no Django or FastAPI (79), no REST (57).",
+      "[rank_candidates] Round 2: scored 10 candidates requirement by requirement (evidenced years, resume quotes). Leader: Nina Petrova (100).",
+      "[rank_candidates] Round 3: hire/no-hire -> Strong Hire 3, Borderline 2, No Hire 5.",
+      "[generate_report] Wrote the explainable match report to output/reports/backend_engineer_python_v1.md."
+     ],
+     "response": "## Shortlist: Backend Engineer (Python)\n**Backend Engineer (Python)**\nMust-have: Python (4+ yrs), Django or FastAPI, PostgreSQL, REST\nNice-to-have: Docker, Kubernetes, AWS, Celery or Redis, Terraform\nExperience: 4+ years total\n\nScreened **100** resumes -> deep-analysed **10** -> recommendations below.\n\n| # | Candidate | Score | Verdict | Top strength | Main gap |\n|---|---|---|---|---|---|\n| 1 | Nina Petrova | 100 | Strong Hire | Python: 9 yrs evidenced, 5 above the bar | - |\n| 2 | John Doe | 89.7 | Strong Hire | Python: 10 yrs evidenced, 6 above the bar | Docker (nice-to-have): listed on resume but no work experience shows it |\n| 3 | Samir Yilmaz | 86.8 | Strong Hire | Python: 12 yrs evidenced, 8 above the bar | Docker (nice-to-have): not found on resume |\n| 4 | Nikhil Johansson | 80.8 | Borderline | Python: 4 yrs evidenced | PostgreSQL (must-have): listed on resume but no work experience shows it |\n| 5 | Rania Xu | 70.9 | Borderline | Python: 5 yrs evidenced, 1 above the bar | Django or FastAPI (must-have): FastAPI: listed on resume but no work experience shows it |\n| 6 | Bianca Fernandes | 64.6 | No Hire | PostgreSQL: 7 yrs evidenced | Python (must-have): listed on resume but no work experience shows it |\n| 7 | Oscar Andersson | 56.1 | No Hire | Python: 5 yrs evidenced, 1 above the bar | PostgreSQL (must-have): not found on resume |\n| 8 | Lena Ibrahim | 55 | No Hire | Python: 5 yrs evidenced, 1 above the bar | PostgreSQL (must-have): not found on resume |\n| 9 | Pedro Ibrahim | 45.2 | No Hire | PostgreSQL: 7 yrs evidenced | Python (must-have): listed on resume but no work experience shows it |\n| 10 | Ximena Garcia | 32.8 | No Hire | Bonus: Celery or Redis | Python (must-have): 2 of 4 required years evidenced |\n\n### Agent assessment\nNina Petrova leads with 100/100: Python: 9 yrs evidenced, 5 above the bar, Django or FastAPI: 5 yrs evidenced, PostgreSQL: 5 yrs evidenced.\n\n### Borderline - what would make them a hire\n- **Nikhil Johansson**: PostgreSQL: listed but never shown in a role. Ask for a PostgreSQL code sample or a short take-home; if it holds up they clear this bar.\n- **Rania Xu**: Django or FastAPI: listed but never shown in a role. Ask for a Django or FastAPI code sample or a short take-home; if it holds up they clear this bar.\n\nFull match report (all 10 candidates, evidence per requirement): `output/reports/backend_engineer_python_v1.md`\n\n_Try: \"Compare the top 3\", \"Why did X rank higher than Y?\", \"Make GraphQL a must-have\", \"Interview questions for X\", \"Tell me about X\"._",
+     "seconds": 0.04,
+     "shortlist": [
+      {
+       "rank": 1,
+       "name": "Nina Petrova",
+       "score": 100.0,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 2,
+       "name": "John Doe",
+       "score": 89.7,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 3,
+       "name": "Samir Yilmaz",
+       "score": 86.8,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 4,
+       "name": "Nikhil Johansson",
+       "score": 80.8,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 5,
+       "name": "Rania Xu",
+       "score": 70.9,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 6,
+       "name": "Bianca Fernandes",
+       "score": 64.6,
+       "verdict": "No Hire"
+      },
+      {
+       "rank": 7,
+       "name": "Oscar Andersson",
+       "score": 56.1,
+       "verdict": "No Hire"
+      },
+      {
+       "rank": 8,
+       "name": "Lena Ibrahim",
+       "score": 55.0,
+       "verdict": "No Hire"
+      },
+      {
+       "rank": 9,
+       "name": "Pedro Ibrahim",
+       "score": 45.2,
+       "verdict": "No Hire"
+      },
+      {
+       "rank": 10,
+       "name": "Ximena Garcia",
+       "score": 32.8,
+       "verdict": "No Hire"
+      }
+     ],
+     "ranking_changes": [],
+     "requirements": {
+      "title": "Backend Engineer (Python)",
+      "must_have": [
+       {
+        "skill": "Python",
+        "min_years": 4.0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Django or FastAPI",
+        "min_years": 0,
+        "weight": 1.0,
+        "any_of": [
+         "Django",
+         "FastAPI"
+        ]
+       },
+       {
+        "skill": "PostgreSQL",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "REST",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "nice_to_have": [
+       {
+        "skill": "Docker",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Kubernetes",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "AWS",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Celery or Redis",
+        "min_years": 0,
+        "weight": 1.0,
+        "any_of": [
+         "Celery",
+         "Redis"
+        ]
+       },
+       {
+        "skill": "Terraform",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "min_total_years": 4.0,
+      "seniority": null
+     },
+     "done": false
+    },
+    {
+     "user": "Tell me about Nina Petrova",
+     "nodes": [
+      "human_feedback",
+      "candidate_report"
+     ],
+     "reasoning": [
+      "[human_feedback] Routed to 'detail' via rules; candidates: Nina Petrova",
+      "[candidate_report] Match report for Nina Petrova."
+     ],
+     "response": "### 1. Nina Petrova - Senior Backend Engineer  (100/100, Strong Hire)\n*resumes/resume_nina_petrova.docx | 9 yrs total*\n\n**Recommendation:** Strong Hire: meets every must-have with room to spare (score 100/100, 4/4 must-haves met)\n\n| Requirement | Type | Status | Evidence |\n|---|---|---|---|\n| Python 4+ yrs | must | met | Built Django REST APIs and Celery workers in Python for a data platform. |\n| Django or FastAPI | must | met | Runs FastAPI and Python services on Kubernetes with PostgreSQL and Redis. |\n| PostgreSQL | must | met | Runs FastAPI and Python services on Kubernetes with PostgreSQL and Redis. |\n| REST | must | met | Built Django REST APIs and Celery workers in Python for a data platform. |\n| Docker | nice | met | Led the move to Docker-based CI/CD with GitHub Actions and Terraform on AWS. |\n| Kubernetes | nice | met | Runs FastAPI and Python services on Kubernetes with PostgreSQL and Redis. |\n| AWS | nice | met | Led the move to Docker-based CI/CD with GitHub Actions and Terraform on AWS. |\n| Celery or Redis | nice | met | Runs FastAPI and Python services on Kubernetes with PostgreSQL and Redis. |\n| Terraform | nice | met | Led the move to Docker-based CI/CD with GitHub Actions and Terraform on AWS. |\n\n**Strengths:** Python: 9 yrs evidenced, 5 above the bar; Django or FastAPI: 5 yrs evidenced; PostgreSQL: 5 yrs evidenced; Bonus: Docker; Bonus: Kubernetes; Bonus: AWS; Bonus: Celery or Redis; Bonus: Terraform; 9 years total experience; Leadership/mentoring evidence; Certified: Certified Kubernetes Application Developer (2022)\n**Gaps:** none",
+     "seconds": 0.0,
+     "shortlist": [
+      {
+       "rank": 1,
+       "name": "Nina Petrova",
+       "score": 100.0,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 2,
+       "name": "John Doe",
+       "score": 89.7,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 3,
+       "name": "Samir Yilmaz",
+       "score": 86.8,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 4,
+       "name": "Nikhil Johansson",
+       "score": 80.8,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 5,
+       "name": "Rania Xu",
+       "score": 70.9,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 6,
+       "name": "Bianca Fernandes",
+       "score": 64.6,
+       "verdict": "No Hire"
+      },
+      {
+       "rank": 7,
+       "name": "Oscar Andersson",
+       "score": 56.1,
+       "verdict": "No Hire"
+      },
+      {
+       "rank": 8,
+       "name": "Lena Ibrahim",
+       "score": 55.0,
+       "verdict": "No Hire"
+      },
+      {
+       "rank": 9,
+       "name": "Pedro Ibrahim",
+       "score": 45.2,
+       "verdict": "No Hire"
+      },
+      {
+       "rank": 10,
+       "name": "Ximena Garcia",
+       "score": 32.8,
+       "verdict": "No Hire"
+      }
+     ],
+     "ranking_changes": [],
+     "requirements": {
+      "title": "Backend Engineer (Python)",
+      "must_have": [
+       {
+        "skill": "Python",
+        "min_years": 4.0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Django or FastAPI",
+        "min_years": 0,
+        "weight": 1.0,
+        "any_of": [
+         "Django",
+         "FastAPI"
+        ]
+       },
+       {
+        "skill": "PostgreSQL",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "REST",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "nice_to_have": [
+       {
+        "skill": "Docker",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Kubernetes",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "AWS",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Celery or Redis",
+        "min_years": 0,
+        "weight": 1.0,
+        "any_of": [
+         "Celery",
+         "Redis"
+        ]
+       },
+       {
+        "skill": "Terraform",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "min_total_years": 4.0,
+      "seniority": null
+     },
+     "done": false
+    },
+    {
+     "user": "Interview questions for John Doe",
+     "nodes": [
+      "human_feedback",
+      "interview_questions"
+     ],
+     "reasoning": [
+      "[human_feedback] Routed to 'questions' via rules; candidates: John Doe",
+      "[interview_questions] 6 questions for John Doe (depth on evidenced skills, probes on gaps)."
+     ],
+     "response": "## Screening questions for John Doe\n\n1. **[depth - Python]** You wrote: \"Maintained internal Python tooling and Flask services; automated deployments with Fabric.\". Walk me through the hardest Python problem in that work: what broke, how you diagnosed it, and what you would do differently now.\n2. **[depth - Django or FastAPI]** You wrote: \"Designed Python (FastAPI, SQLAlchemy) microservices handling 4,000 requests/second.\". Walk me through the hardest Django or FastAPI problem in that work: what broke, how you diagnosed it, and what you would do differently now.\n3. **[depth - PostgreSQL]** You wrote: \"Wrote Python data-migration scripts that moved 80M rows between PostgreSQL clusters with zero\". Walk me through the hardest PostgreSQL problem in that work: what broke, how you diagnosed it, and what you would do differently now.\n4. **[learning agility - Docker, Kubernetes, AWS]** We also use Docker, Kubernetes, AWS. Which of these have you touched, and how do you usually pick up a new tool on a deadline?\n5. **[behavioural - leadership]** Describe a time you mentored someone or led a technical decision the team disagreed with. How did you get to alignment?\n6. **[behavioural - motivation]** Why are you looking to move on from Northwind Logistics, and what would make this Backend Engineer (Python) a step up for you?",
+     "seconds": 0.0,
+     "shortlist": [
+      {
+       "rank": 1,
+       "name": "Nina Petrova",
+       "score": 100.0,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 2,
+       "name": "John Doe",
+       "score": 89.7,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 3,
+       "name": "Samir Yilmaz",
+       "score": 86.8,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 4,
+       "name": "Nikhil Johansson",
+       "score": 80.8,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 5,
+       "name": "Rania Xu",
+       "score": 70.9,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 6,
+       "name": "Bianca Fernandes",
+       "score": 64.6,
+       "verdict": "No Hire"
+      },
+      {
+       "rank": 7,
+       "name": "Oscar Andersson",
+       "score": 56.1,
+       "verdict": "No Hire"
+      },
+      {
+       "rank": 8,
+       "name": "Lena Ibrahim",
+       "score": 55.0,
+       "verdict": "No Hire"
+      },
+      {
+       "rank": 9,
+       "name": "Pedro Ibrahim",
+       "score": 45.2,
+       "verdict": "No Hire"
+      },
+      {
+       "rank": 10,
+       "name": "Ximena Garcia",
+       "score": 32.8,
+       "verdict": "No Hire"
+      }
+     ],
+     "ranking_changes": [],
+     "requirements": {
+      "title": "Backend Engineer (Python)",
+      "must_have": [
+       {
+        "skill": "Python",
+        "min_years": 4.0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Django or FastAPI",
+        "min_years": 0,
+        "weight": 1.0,
+        "any_of": [
+         "Django",
+         "FastAPI"
+        ]
+       },
+       {
+        "skill": "PostgreSQL",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "REST",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "nice_to_have": [
+       {
+        "skill": "Docker",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Kubernetes",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "AWS",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Celery or Redis",
+        "min_years": 0,
+        "weight": 1.0,
+        "any_of": [
+         "Celery",
+         "Redis"
+        ]
+       },
+       {
+        "skill": "Terraform",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "min_total_years": 4.0,
+      "seniority": null
+     },
+     "done": false
+    }
+   ]
+  },
+  {
+   "name": "06_borderline_ml",
+   "title": "Borderline candidates and improvement suggestions",
+   "goal": "ML role: inspect a borderline candidate, compare them with the leader, end the session.",
+   "turns": [
+    {
+     "user": "job_descriptions/ml_engineer.txt",
+     "nodes": [
+      "parse_jd",
+      "extract_requirements",
+      "search_resumes",
+      "rank_candidates",
+      "generate_report"
+     ],
+     "reasoning": [
+      "[parse_jd] Read the job brief from job_descriptions/ml_engineer.txt (33 words).",
+      "[extract_requirements] rule-based parser: must-have = Python 3+y, PyTorch, Machine Learning; nice-to-have = NLP or LLM, MLOps, Airflow, Kubernetes, FastAPI",
+      "[search_resumes] Round 1: RAG query 'Python PyTorch Machine Learning Python PyTorch Machine Learning NLP LLM MLOps Airflow Kubernetes FastAPI Machine Learning Engineer' over 100 resumes -> kept top 10 (cut-off quick score 87.7). Most common misses: no PyTorch (87), no Machine Learning (86), no Python (46).",
+      "[rank_candidates] Round 2: scored 10 candidates requirement by requirement (evidenced years, resume quotes). Leader: Omar Haddad (99.4).",
+      "[rank_candidates] Round 3: hire/no-hire -> Strong Hire 6, Hire 2, Borderline 1, No Hire 1.",
+      "[generate_report] Wrote the explainable match report to output/reports/machine_learning_engineer_v1.md."
+     ],
+     "response": "## Shortlist: Machine Learning Engineer\n**Machine Learning Engineer**\nMust-have: Python (3+ yrs), PyTorch, Machine Learning\nNice-to-have: NLP or LLM, MLOps, Airflow, Kubernetes, FastAPI\n\nScreened **100** resumes -> deep-analysed **10** -> recommendations below.\n\n| # | Candidate | Score | Verdict | Top strength | Main gap |\n|---|---|---|---|---|---|\n| 1 | Omar Haddad | 99.4 | Strong Hire | Python: 5 yrs evidenced, 2 above the bar | - |\n| 2 | Ivan Fischer | 87.9 | Strong Hire | Python: 12 yrs evidenced, 9 above the bar | Airflow (nice-to-have): not found on resume |\n| 3 | Uma Nakamura | 87.8 | Strong Hire | Python: 7 yrs evidenced, 4 above the bar | NLP or LLM (nice-to-have): none of NLP or LLM found |\n| 4 | Tara Garcia | 86.9 | Strong Hire | Python: 4 yrs evidenced, 1 above the bar | MLOps (nice-to-have): not found on resume |\n| 5 | Dana Dubois | 86.2 | Strong Hire | Python: 3 yrs evidenced | MLOps (nice-to-have): not found on resume |\n| 6 | Sara Lindqvist | 85.5 | Strong Hire | Python: 6 yrs evidenced, 3 above the bar | NLP or LLM (nice-to-have): NLP: listed on resume but no work experience shows it |\n| 7 | Tomas Fernandes | 84.6 | Hire | Python: 5 yrs evidenced, 2 above the bar | NLP or LLM (nice-to-have): none of NLP or LLM found |\n| 8 | Ingrid Esposito | 81.4 | Hire | Python: 9 yrs evidenced, 6 above the bar | NLP or LLM (nice-to-have): none of NLP or LLM found |\n| 9 | Vera Takahashi | 65.4 | Borderline | PyTorch: 1 yr evidenced | Python (must-have): 1 of 3 required years evidenced |\n| 10 | Samir Bakker | 57.2 | No Hire | Machine Learning: 1 yr evidenced | Python (must-have): 1 of 3 required years evidenced |\n\n### Agent assessment\nOmar Haddad leads with 99.4/100: Python: 5 yrs evidenced, 2 above the bar, PyTorch: 4 yrs evidenced, Machine Learning: 4 yrs evidenced.\n\n### Borderline - what would make them a hire\n- **Vera Takahashi**: Python: 1 of 3 required years evidenced. Probe adjacent experience in the screen; consider a mid-level offer or revisit in 6-12 months.\n\nFull match report (all 10 candidates, evidence per requirement): `output/reports/machine_learning_engineer_v1.md`\n\n_Try: \"Compare the top 3\", \"Why did X rank higher than Y?\", \"Make GraphQL a must-have\", \"Interview questions for X\", \"Tell me about X\"._",
+     "seconds": 0.02,
+     "shortlist": [
+      {
+       "rank": 1,
+       "name": "Omar Haddad",
+       "score": 99.4,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 2,
+       "name": "Ivan Fischer",
+       "score": 87.9,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 3,
+       "name": "Uma Nakamura",
+       "score": 87.8,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 4,
+       "name": "Tara Garcia",
+       "score": 86.9,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 5,
+       "name": "Dana Dubois",
+       "score": 86.2,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 6,
+       "name": "Sara Lindqvist",
+       "score": 85.5,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 7,
+       "name": "Tomas Fernandes",
+       "score": 84.6,
+       "verdict": "Hire"
+      },
+      {
+       "rank": 8,
+       "name": "Ingrid Esposito",
+       "score": 81.4,
+       "verdict": "Hire"
+      },
+      {
+       "rank": 9,
+       "name": "Vera Takahashi",
+       "score": 65.4,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 10,
+       "name": "Samir Bakker",
+       "score": 57.2,
+       "verdict": "No Hire"
+      }
+     ],
+     "ranking_changes": [],
+     "requirements": {
+      "title": "Machine Learning Engineer",
+      "must_have": [
+       {
+        "skill": "Python",
+        "min_years": 3.0,
+        "weight": 1.0
+       },
+       {
+        "skill": "PyTorch",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Machine Learning",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "nice_to_have": [
+       {
+        "skill": "NLP or LLM",
+        "min_years": 0,
+        "weight": 1.0,
+        "any_of": [
+         "NLP",
+         "LLM"
+        ]
+       },
+       {
+        "skill": "MLOps",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Airflow",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Kubernetes",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "FastAPI",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "min_total_years": 0,
+      "seniority": null
+     },
+     "done": false
+    },
+    {
+     "user": "Tell me about Vera Takahashi",
+     "nodes": [
+      "human_feedback",
+      "candidate_report"
+     ],
+     "reasoning": [
+      "[human_feedback] Routed to 'detail' via rules; candidates: Vera Takahashi",
+      "[candidate_report] Match report for Vera Takahashi."
+     ],
+     "response": "### 9. Vera Takahashi - Junior ML Engineer  (65.4/100, Borderline)\n*resumes/resume_vera_takahashi.docx | 1 yrs total*\n\n**Recommendation:** Borderline: close: Python is 1 of 3 required years evidenced (score 65.4/100, 2/3 must-haves met)\n\n| Requirement | Type | Status | Evidence |\n|---|---|---|---|\n| Python 3+ yrs | must | partial | 1 of 3 required years evidenced |\n| PyTorch | must | met | Shipped PyTorch features for search ranking using Machine Learning. |\n| Machine Learning | must | met | Junior ML Engineer - Umbra Systems  (2025 - Present) |\n| NLP or LLM | nice | missing | none of NLP or LLM found |\n| MLOps | nice | listed | listed on resume but no work experience shows it |\n| Airflow | nice | missing | not found on resume |\n| Kubernetes | nice | missing | not found on resume |\n| FastAPI | nice | missing | not found on resume |\n\n**Strengths:** PyTorch: 1 yr evidenced; Machine Learning: 1 yr evidenced\n**Gaps:** Python (must-have): 1 of 3 required years evidenced; NLP or LLM (nice-to-have): none of NLP or LLM found; MLOps (nice-to-have): listed on resume but no work experience shows it; Airflow (nice-to-have): not found on resume; Kubernetes (nice-to-have): not found on resume; FastAPI (nice-to-have): not found on resume\n\n**Improvement suggestions:**\n- Python: 1 of 3 required years evidenced. Probe adjacent experience in the screen; consider a mid-level offer or revisit in 6-12 months.",
+     "seconds": 0.0,
+     "shortlist": [
+      {
+       "rank": 1,
+       "name": "Omar Haddad",
+       "score": 99.4,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 2,
+       "name": "Ivan Fischer",
+       "score": 87.9,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 3,
+       "name": "Uma Nakamura",
+       "score": 87.8,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 4,
+       "name": "Tara Garcia",
+       "score": 86.9,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 5,
+       "name": "Dana Dubois",
+       "score": 86.2,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 6,
+       "name": "Sara Lindqvist",
+       "score": 85.5,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 7,
+       "name": "Tomas Fernandes",
+       "score": 84.6,
+       "verdict": "Hire"
+      },
+      {
+       "rank": 8,
+       "name": "Ingrid Esposito",
+       "score": 81.4,
+       "verdict": "Hire"
+      },
+      {
+       "rank": 9,
+       "name": "Vera Takahashi",
+       "score": 65.4,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 10,
+       "name": "Samir Bakker",
+       "score": 57.2,
+       "verdict": "No Hire"
+      }
+     ],
+     "ranking_changes": [],
+     "requirements": {
+      "title": "Machine Learning Engineer",
+      "must_have": [
+       {
+        "skill": "Python",
+        "min_years": 3.0,
+        "weight": 1.0
+       },
+       {
+        "skill": "PyTorch",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Machine Learning",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "nice_to_have": [
+       {
+        "skill": "NLP or LLM",
+        "min_years": 0,
+        "weight": 1.0,
+        "any_of": [
+         "NLP",
+         "LLM"
+        ]
+       },
+       {
+        "skill": "MLOps",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Airflow",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Kubernetes",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "FastAPI",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "min_total_years": 0,
+      "seniority": null
+     },
+     "done": false
+    },
+    {
+     "user": "Compare Omar Haddad and Vera Takahashi",
+     "nodes": [
+      "human_feedback",
+      "compare_candidates"
+     ],
+     "reasoning": [
+      "[human_feedback] Routed to 'compare' via rules; candidates: Omar Haddad, Vera Takahashi",
+      "[compare_candidates] Compared Omar Haddad, Vera Takahashi; winner Omar Haddad."
+     ],
+     "response": "## Head-to-head: Omar Haddad vs Vera Takahashi\n\n| Requirement | Omar Haddad | Vera Takahashi | Edge |\n|---|---|---|---|\n| Python (must) | [+] 5 yrs evidenced (needs 3) | [~] 1 of 3 required years evidenced | Omar Haddad |\n| PyTorch (must) | [+] 4 yrs evidenced | [+] 1 yr evidenced | tie |\n| Machine Learning (must) | [+] 4 yrs evidenced | [+] 1 yr evidenced | tie |\n| NLP or LLM (nice) | [+] NLP: 4 yrs evidenced | [-] none of NLP or LLM found | Omar Haddad |\n| MLOps (nice) | [+] 4 yrs evidenced | [?] listed on resume but no work experience shows it | Omar Haddad |\n| Airflow (nice) | [+] 4 yrs evidenced | [-] not found on resume | Omar Haddad |\n| Kubernetes (nice) | [+] 4 yrs evidenced | [-] not found on resume | Omar Haddad |\n| FastAPI (nice) | [+] 4 yrs evidenced | [-] not found on resume | Omar Haddad |\n| **Score / verdict** | **99.4** Strong Hire | **65.4** Borderline | Omar Haddad |\n\nOmar Haddad comes out ahead overall, leading or sharing the lead on 6 of 8 requirement rows. Omar Haddad: Strong Hire (99.4). Vera Takahashi: Borderline (65.4).",
+     "seconds": 0.0,
+     "shortlist": [
+      {
+       "rank": 1,
+       "name": "Omar Haddad",
+       "score": 99.4,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 2,
+       "name": "Ivan Fischer",
+       "score": 87.9,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 3,
+       "name": "Uma Nakamura",
+       "score": 87.8,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 4,
+       "name": "Tara Garcia",
+       "score": 86.9,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 5,
+       "name": "Dana Dubois",
+       "score": 86.2,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 6,
+       "name": "Sara Lindqvist",
+       "score": 85.5,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 7,
+       "name": "Tomas Fernandes",
+       "score": 84.6,
+       "verdict": "Hire"
+      },
+      {
+       "rank": 8,
+       "name": "Ingrid Esposito",
+       "score": 81.4,
+       "verdict": "Hire"
+      },
+      {
+       "rank": 9,
+       "name": "Vera Takahashi",
+       "score": 65.4,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 10,
+       "name": "Samir Bakker",
+       "score": 57.2,
+       "verdict": "No Hire"
+      }
+     ],
+     "ranking_changes": [],
+     "requirements": {
+      "title": "Machine Learning Engineer",
+      "must_have": [
+       {
+        "skill": "Python",
+        "min_years": 3.0,
+        "weight": 1.0
+       },
+       {
+        "skill": "PyTorch",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Machine Learning",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "nice_to_have": [
+       {
+        "skill": "NLP or LLM",
+        "min_years": 0,
+        "weight": 1.0,
+        "any_of": [
+         "NLP",
+         "LLM"
+        ]
+       },
+       {
+        "skill": "MLOps",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Airflow",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Kubernetes",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "FastAPI",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "min_total_years": 0,
+      "seniority": null
+     },
+     "done": false
+    },
+    {
+     "user": "done",
+     "nodes": [
+      "human_feedback"
+     ],
+     "reasoning": [
+      "[human_feedback] Routed to 'end' via rules"
+     ],
+     "response": "Session ended. Reports are in output/reports/.",
+     "seconds": 0.0,
+     "shortlist": [
+      {
+       "rank": 1,
+       "name": "Omar Haddad",
+       "score": 99.4,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 2,
+       "name": "Ivan Fischer",
+       "score": 87.9,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 3,
+       "name": "Uma Nakamura",
+       "score": 87.8,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 4,
+       "name": "Tara Garcia",
+       "score": 86.9,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 5,
+       "name": "Dana Dubois",
+       "score": 86.2,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 6,
+       "name": "Sara Lindqvist",
+       "score": 85.5,
+       "verdict": "Strong Hire"
+      },
+      {
+       "rank": 7,
+       "name": "Tomas Fernandes",
+       "score": 84.6,
+       "verdict": "Hire"
+      },
+      {
+       "rank": 8,
+       "name": "Ingrid Esposito",
+       "score": 81.4,
+       "verdict": "Hire"
+      },
+      {
+       "rank": 9,
+       "name": "Vera Takahashi",
+       "score": 65.4,
+       "verdict": "Borderline"
+      },
+      {
+       "rank": 10,
+       "name": "Samir Bakker",
+       "score": 57.2,
+       "verdict": "No Hire"
+      }
+     ],
+     "ranking_changes": [],
+     "requirements": {
+      "title": "Machine Learning Engineer",
+      "must_have": [
+       {
+        "skill": "Python",
+        "min_years": 3.0,
+        "weight": 1.0
+       },
+       {
+        "skill": "PyTorch",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Machine Learning",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "nice_to_have": [
+       {
+        "skill": "NLP or LLM",
+        "min_years": 0,
+        "weight": 1.0,
+        "any_of": [
+         "NLP",
+         "LLM"
+        ]
+       },
+       {
+        "skill": "MLOps",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Airflow",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "Kubernetes",
+        "min_years": 0,
+        "weight": 1.0
+       },
+       {
+        "skill": "FastAPI",
+        "min_years": 0,
+        "weight": 1.0
+       }
+      ],
+      "min_total_years": 0,
+      "seniority": null
+     },
+     "done": true
+    }
+   ]
+  }
+ ]
+}

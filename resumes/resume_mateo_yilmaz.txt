@@ -1,0 +1,34 @@
+MATEO YILMAZ
+Senior Site Reliability Engineer
+mateo.yilmaz@example.com | +1 (555) 0135-1035 | Lisbon, Portugal
+
+PROFESSIONAL SUMMARY
+--------------------
+Senior Site Reliability Engineer with 10 years of experience working with Linux, Docker, Kubernetes.
+
+EXPERIENCE
+----------
+Senior Site Reliability Engineer - Pebble Payments (2021 - Present)
+  * Ran Azure clusters provisioned with Kubernetes across 3 regions.
+  * Automated infrastructure with Kubernetes and Azure.
+
+DevOps Engineer - Vantage Travel (2018 - 2021)
+  * Ran Python clusters provisioned with Kubernetes across 3 regions.
+  * Automated infrastructure with Kubernetes and Python.
+
+Junior DevOps Engineer - Lumos Media (2016 - 2018)
+  * Built Docker dashboards and Linux alerts, cutting MTTR 12%.
+  * Automated infrastructure with Linux and Kubernetes.
+  * Day-to-day stack: Docker, Linux, Kubernetes, Azure.
+
+EDUCATION
+---------
+B.S. Information Technology, Iyer State University, 2016
+
+SKILLS
+------
+Core: Linux, Docker, Kubernetes, Azure, Python
+Also: -
+
+CERTIFICATIONS
+--------------

@@ -1,0 +1,30 @@
+MATEO WEBER
+Senior Java Engineer
+mateo.weber@example.com | +1 (555) 0147-1047 | Remote
+
+PROFESSIONAL SUMMARY
+--------------------
+Senior Java Engineer with 6 years of experience working with Java, Spring Boot, SQL.
+
+EXPERIENCE
+----------
+Senior Java Engineer - Sable Analytics (2021 - Present)
+  * Developed PostgreSQL microservices with Java for payment processing.
+  * Tuned Java queries and PostgreSQL consumers, cutting latency 58%.
+
+Java Engineer - Pebble Payments (2020 - 2021)
+  * Tuned MySQL queries and Kafka consumers, cutting latency 38%.
+  * Developed Kafka microservices with SQL for payment processing.
+  * Day-to-day stack: MySQL, Kafka, SQL, PostgreSQL.
+
+EDUCATION
+---------
+B.E. Computer Engineering, Takahashi University of Applied Sciences, 2020
+
+SKILLS
+------
+Core: Java, Spring Boot, SQL, MySQL, Kafka
+Also: PostgreSQL
+
+CERTIFICATIONS
+--------------

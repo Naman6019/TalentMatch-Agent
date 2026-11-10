@@ -1,0 +1,30 @@
+TOMAS HORVAT
+Senior Full-Stack Engineer
+tomas.horvat@example.com | +1 (555) 0117-1017 | Remote
+
+PROFESSIONAL SUMMARY
+--------------------
+Senior Full-Stack Engineer with 9 years of experience working with JavaScript, Node.js, SQL.
+
+EXPERIENCE
+----------
+Senior Full-Stack Engineer - Foxglove AI (2018 - Present)
+  * Designed REST APIs in Vue.js backed by SQL.
+  * Containerised services with SQL and automated releases on Vue.js.
+
+Full-Stack Engineer - Quarry Games (2017 - 2018)
+  * Containerised services with Vue.js and automated releases on MongoDB.
+  * Designed REST APIs in MongoDB backed by Node.js.
+  * Day-to-day stack: Vue.js, MongoDB, Node.js, JavaScript.
+
+EDUCATION
+---------
+B.S. Software Engineering, Patel University of Applied Sciences, 2017
+
+SKILLS
+------
+Core: JavaScript, Node.js, SQL, Vue.js, MongoDB
+Also: -
+
+CERTIFICATIONS
+--------------

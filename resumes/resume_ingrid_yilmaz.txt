@@ -1,0 +1,36 @@
+INGRID YILMAZ
+Senior Java Engineer
+ingrid.yilmaz@example.com | +1 (555) 0132-1032 | Sydney, Australia
+
+PROFESSIONAL SUMMARY
+--------------------
+Senior Java Engineer with 9 years of experience working with Java, Spring Boot, SQL.
+
+EXPERIENCE
+----------
+Senior Java Engineer - Echo Health (2025 - Present)
+  * Tuned AWS queries and MySQL consumers, cutting latency 41%.
+  * Developed MySQL microservices with Jenkins for payment processing.
+  * Day-to-day stack: AWS, MySQL, Jenkins.
+
+Java Engineer - Echo Health (2020 - 2025)
+  * Migrated deployments to SQL with Java pipelines.
+  * Tuned Java queries and MySQL consumers, cutting latency 56%.
+  * Day-to-day stack: SQL, Java, MySQL, AWS.
+
+Junior Java Developer - Keystone Bank (2017 - 2020)
+  * Developed Jenkins microservices with AWS for payment processing.
+  * Tuned AWS queries and Spring Boot consumers, cutting latency 26%.
+  * Day-to-day stack: Jenkins, AWS, Spring Boot.
+
+EDUCATION
+---------
+B.E. Computer Engineering, Zhang State University, 2017
+
+SKILLS
+------
+Core: Java, Spring Boot, SQL, MySQL, REST
+Also: AWS, Jenkins
+
+CERTIFICATIONS
+--------------

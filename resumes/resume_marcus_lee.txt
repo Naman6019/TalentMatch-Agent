@@ -1,0 +1,30 @@
+MARCUS LEE
+Full-Stack Engineer
+marcus.lee@example.com | +1 (555) 010-0203 | Atlanta, GA | github.com/example-mlee
+
+PROFESSIONAL SUMMARY
+--------------------
+Full-stack engineer with 4 years of experience across React, TypeScript and Node.js services on AWS.
+
+EXPERIENCE
+----------
+Full-Stack Engineer - Peachtree Fintech (2023 - Present)
+  * Built React + TypeScript dashboards and Node.js REST APIs on AWS Lambda.
+  * Added Playwright end-to-end tests; reduced production regressions by 30%.
+
+Software Engineer - Northstar Labs (2022 - 2023)
+  * Developed Node.js and Express services with PostgreSQL and Docker.
+
+EDUCATION
+---------
+B.S. Software Engineering, Georgia Tech, 2022
+
+SKILLS
+------
+Languages: TypeScript, JavaScript, SQL
+Frameworks: React, Node.js, Express
+Tooling: AWS, Docker, PostgreSQL, Playwright
+
+CERTIFICATIONS
+--------------
+  * AWS Certified Developer - Associate (2024)

@@ -1,0 +1,26 @@
+IVAN ESPOSITO
+Full-Stack Engineer
+ivan.esposito@example.com | +1 (555) 0171-1071 | Austin, TX
+
+PROFESSIONAL SUMMARY
+--------------------
+Full-Stack Engineer with 2 years of experience working with JavaScript, Node.js, SQL.
+
+EXPERIENCE
+----------
+Full-Stack Engineer - Lumos Media (2024 - Present)
+  * Delivered features end to end with Python on the frontend and GraphQL on the backend.
+  * Designed REST APIs in GraphQL backed by Node.js.
+  * Day-to-day stack: Python, GraphQL, Node.js, Angular.
+
+EDUCATION
+---------
+B.S. Software Engineering, Kim State University, 2024
+
+SKILLS
+------
+Core: JavaScript, Node.js, SQL, Python, Angular
+Also: AWS, GraphQL, Express
+
+CERTIFICATIONS
+--------------

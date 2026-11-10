@@ -1,0 +1,35 @@
+TARA ESPOSITO
+Data Scientist
+tara.esposito@example.com | +1 (555) 0162-1062 | Toronto, ON
+
+PROFESSIONAL SUMMARY
+--------------------
+Data Scientist with 4 years of experience working with Python, SQL, pandas.
+
+EXPERIENCE
+----------
+Data Scientist - Zephyr Mobility (2024 - Present)
+  * Built Spark models with pandas that lifted retention by 55%.
+  * Automated reporting pipelines in pandas and Statistics.
+  * Day-to-day stack: Spark, pandas, Statistics.
+
+Data Analyst - Orchid Telecom (2023 - 2024)
+  * Ran A/B tests and presented pandas insights built on Airflow.
+  * Built Airflow models with scikit-learn that lifted retention by 25%.
+  * Day-to-day stack: pandas, Airflow, scikit-learn.
+
+Data Analyst - Juniper Retail (2022 - 2023)
+  * Built Statistics models with Spark that lifted retention by 16%.
+  * Ran A/B tests and presented Spark insights built on Statistics.
+
+EDUCATION
+---------
+M.S. Statistics, Novak Polytechnic University, 2022
+
+SKILLS
+------
+Core: Python, SQL, pandas, Spark, Statistics
+Also: Machine Learning, Airflow, scikit-learn
+
+CERTIFICATIONS
+--------------

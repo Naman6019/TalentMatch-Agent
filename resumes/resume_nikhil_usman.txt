@@ -1,0 +1,35 @@
+NIKHIL USMAN
+Full-Stack Engineer
+nikhil.usman@example.com | +1 (555) 0165-1065 | Seattle, WA
+
+PROFESSIONAL SUMMARY
+--------------------
+Full-Stack Engineer with 3 years of experience working with JavaScript, Node.js, SQL.
+
+EXPERIENCE
+----------
+Full-Stack Engineer - Juniper Retail (2025 - Present)
+  * Containerised services with Python and automated releases on SQL.
+  * Delivered features end to end with SQL on the frontend and Python on the backend.
+
+Junior Full-Stack Developer - Sable Analytics (2024 - 2025)
+  * Containerised services with Express and automated releases on SQL.
+  * Delivered features end to end with SQL on the frontend and Python on the backend.
+  * Day-to-day stack: Express, SQL, Python, Docker.
+
+Junior Full-Stack Developer - Hollow Pine (2023 - 2024)
+  * Containerised services with SQL and automated releases on Docker.
+  * Designed REST APIs in Docker backed by Python.
+  * Day-to-day stack: SQL, Docker, Python.
+
+EDUCATION
+---------
+B.S. Software Engineering, Kim State University, 2023
+
+SKILLS
+------
+Core: JavaScript, Node.js, SQL, Angular, Docker
+Also: Python, AWS, Express
+
+CERTIFICATIONS
+--------------

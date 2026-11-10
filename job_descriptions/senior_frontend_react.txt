@@ -1,0 +1,18 @@
+# Senior Frontend Engineer
+
+**About the role**
+Summit is hiring a senior frontend engineer to own our customer dashboard. You will work with
+design and backend teams and help set our frontend testing culture. We expect 5+ years of
+professional experience.
+
+**Must have**
+- 3+ years of React in production
+- TypeScript
+- Strong JavaScript, HTML and CSS fundamentals
+
+**Nice to have**
+- Next.js
+- GraphQL (Apollo)
+- Jest or Cypress testing experience
+- Accessibility (WCAG) knowledge
+- AWS
