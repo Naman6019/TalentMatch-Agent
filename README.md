@@ -22,7 +22,7 @@ you> Make GraphQL a must-have and relax React to 2 years
 | State machine diagram | [`docs/state_machine.png`](docs/state_machine.png), [`docs/state_machine.md`](docs/state_machine.md) (Mermaid exported from the compiled graph) |
 | Chat interface (CLI) | [`chat_cli.py`](chat_cli.py) |
 | Test scenarios (6 conversation flows) | [`run_scenarios.py`](run_scenarios.py) → `output/scenarios/*.md`; asserted in [`tests/`](tests/test_matching_agent.py) |
-| Demo video | `demo/TalentMatch_demo_silent.mp4` (Remotion project in [`video/`](video)); record the voiceover with [`DEMO_SCRIPT.md`](DEMO_SCRIPT.md), then `npm run render` in `video/` produces `demo/TalentMatch_demo.mp4` |
+| Demo video | [`demo/TalentMatch_demo.mp4`](demo/TalentMatch_demo.mp4) with voiceover (5:56); silent cut `demo/TalentMatch_demo_silent.mp4`. Remotion project in [`video/`](video), script + recording guide in [`DEMO_SCRIPT.md`](DEMO_SCRIPT.md) |
 
 ## Quick start
 

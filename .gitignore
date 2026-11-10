@@ -7,3 +7,9 @@ __pycache__/
 output/reports/
 video/node_modules/
 video/out/
+
+# raw voiceover screen recordings (only the extracted audio in video/public/voiceover/audio/ is committed)
+video/public/voiceover/*.mp4
+video/public/voiceover/*.mov
+video/public/voiceover/*.webm
+video/public/voiceover/*.mkv
