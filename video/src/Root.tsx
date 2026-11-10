@@ -1,12 +1,21 @@
 import React from "react";
 import { Composition, Folder, Still } from "remotion";
-import { DemoVideo, SCENES, TOTAL_FRAMES } from "./DemoVideo";
+import { BASE_TOTAL, DemoVideo, SCENES, calculateDemoMetadata, defaultDemoProps } from "./DemoVideo";
 import { StateMachineStill } from "./scenes/StateMachineScene";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
-      <Composition id="TalentMatchDemo" component={DemoVideo} durationInFrames={TOTAL_FRAMES} fps={30} width={1920} height={1080} />
+      <Composition
+        id="TalentMatchDemo"
+        component={DemoVideo}
+        durationInFrames={BASE_TOTAL}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={defaultDemoProps}
+        calculateMetadata={calculateDemoMetadata}
+      />
       <Folder name="Scenes">
         {SCENES.map((s) => (
           <Composition
